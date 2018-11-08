@@ -2,6 +2,7 @@
 #define OOP_PROJECT_MENUITEM_H
 
 #include <string>
+#include "Recipe.h"
 
 using namespace std;
 
@@ -11,12 +12,10 @@ private:
 	int price;
 
 public:
-	MenuItem() {
 
-	}
-
-
-
+	void setCoffeeName(const Recipe &coffeRecipe);
+	void setCoffeePrice(const Recipe &coffeeRecipe);
+	string getCoffeeName() const;
 };
 
 
