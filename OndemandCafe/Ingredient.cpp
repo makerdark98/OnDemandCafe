@@ -1,7 +1,4 @@
-#include<iostream>
-#include<string>
 #include "Ingredient.h"
-using namespace std;
 
 Ingredient::Ingredient(const string& name) :name(name) {
 }
@@ -28,4 +25,14 @@ const bool Ingredient::equals(const Ingredient& others)const {
 
 const bool Ingredient::operator==(const Ingredient& others)const {
 	Ingredient::equals(others);
+
+
+
+Ingredient::Ingredient()
+{
+}
+
+
+Ingredient::~Ingredient()
+{
 }
