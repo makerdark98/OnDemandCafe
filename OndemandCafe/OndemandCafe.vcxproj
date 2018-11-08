@@ -142,7 +142,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Barista.cpp" />
+    <ClCompile Include="Coffee.cpp" />
+    <ClCompile Include="CoffeeBean.cpp" />
+    <ClCompile Include="Ingredient.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MenuItem.cpp" />
+    <ClCompile Include="Recipe.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Barista.h" />
+    <ClInclude Include="Coffee.h" />
+    <ClInclude Include="CoffeeBean.h" />
+    <ClInclude Include="Ingredient.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="MenuItem.h" />
+    <ClInclude Include="Recipe.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
