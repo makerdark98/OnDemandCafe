@@ -10,8 +10,7 @@ private:
 public:
 	Coffee(const Recipe& recipe);
 	~Coffee();
-	string getName();
+	const string getName()const ;
 	const Recipe getRecipe() const;
-
 };
 

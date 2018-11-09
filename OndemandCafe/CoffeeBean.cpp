@@ -6,7 +6,7 @@ CoffeeBean::CoffeeBean(const string& origin):Ingredient("coffeeBean"),m_origin(o
 CoffeeBean::~CoffeeBean(){
 }
 
-bool CoffeeBean::equals(const CoffeeBean& otherCoffeeBean) {
+const bool CoffeeBean::equals(const CoffeeBean& otherCoffeeBean)const{
 	if (m_origin == otherCoffeeBean.getName()) {
 		return true;
 	}

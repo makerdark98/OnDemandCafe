@@ -10,7 +10,7 @@ private:
 public:
 	CoffeeBean(const string& origin);
 	~CoffeeBean();
-	bool equals(const CoffeeBean& otherCoffeeBean);
+	const bool equals(const CoffeeBean& otherCoffeeBean)const;
 	const string getName() const;
 };
 

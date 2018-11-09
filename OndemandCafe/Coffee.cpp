@@ -8,7 +8,7 @@ Coffee::~Coffee()
 {
 }
 
-string Coffee::getName()
+const string Coffee::getName()const
 {
 	return m_recipe.getCoffeeName();
 }
