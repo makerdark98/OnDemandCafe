@@ -1,12 +1,16 @@
 #pragma once
-typedef double Amount;
+
+#include "Recipe.h"
+
 class Coffee
 {
 private:
-	string nameOfCoffee;
-	vector < pair < Ingredient,Amount>> recipeData;
+	Recipe m_recipe;
 public:
 	Coffee(const Recipe& recipe);
 	~Coffee();
+	string getName();
+	const Recipe getRecipe() const;
+
 };
 
