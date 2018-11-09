@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Recipe.h"
+using namespace std;
 
 class Coffee
 {

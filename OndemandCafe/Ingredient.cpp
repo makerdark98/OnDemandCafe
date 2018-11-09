@@ -6,15 +6,11 @@ Ingredient::Ingredient(const string& name) :m_name(name) {
 Ingredient::~Ingredient(){
 }
 
-int Ingredient::getPrice() {
-	return m_price;
-}
-
-int Ingredient::getUnitPrice() {
+const int Ingredient::getUnitPrice() const{
 	return m_unitPrice;
 }
 
-string Ingredient::getName() {
+const string Ingredient::getName()const {
 	return m_name;
 }
 

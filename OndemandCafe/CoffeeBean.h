@@ -1,7 +1,8 @@
 #pragma once
 #include<string>
-using namespace std;
 #include "Ingredient.h"
+using namespace std;
+
 class CoffeeBean:public Ingredient
 {
 private:
