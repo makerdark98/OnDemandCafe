@@ -8,14 +8,25 @@ void Menu::addMenuItem(const MenuItem& menuName) {
 	m_menuList.push_back(menuName);
 }
 
-void Menu::deleteMenuItem(const vector<MenuItem> &menuList,const MenuItem& menuName) {
-
-	for (auto i : menuList) {
-		if (i.getCoffeeName() == menuName.getCoffeeName()) {
-			// TODO: menuList.erase(menuName); 아직 잘 모르겠어서 생각하는 중..
+void Menu::deleteMenuItem(const MenuItem & menuName){
+	
+	for (auto iterMenu = m_menuList.begin(); iterMenu < m_menuList.end(); iterMenu++) {
+		if (iterMenu->getCoffeeName() == menuName.getCoffeeName()) {
+			
 		}
 	}
 
+
+}
+
+void Menu::modifyMenuName(const string & originName, const string & newName){
+
+	for (auto iterMenu = m_menuList.begin(); iterMenu < m_menuList.end(); iterMenu++) {
+		if (iterMenu->getCoffeeName() == originName) {
+			iterMenu->setCoffeeName(newName);
+			break;
+		}
+	}
 }
 
 vector<MenuItem> Menu::getMenuItem() const {
