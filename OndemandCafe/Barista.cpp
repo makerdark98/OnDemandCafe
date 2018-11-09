@@ -1,8 +1,5 @@
-#include<iostream>
-#include<string>
-#include<vector>
-#include<utility>
-#include "Barista.h"
+#include"Recipe.h"
+#include"Barista.h"
 #include"Coffee.h"
 #include"Ingredient.h"
 using namespace std;
@@ -16,6 +13,5 @@ Barista::~Barista()
 }
 
 Coffee Barista::makeCoffee(const Recipe& recipe) {
-	Coffee coffee = Coffee(recipe);
-	return coffee;
+	Coffee coffee(recipe);
 }
