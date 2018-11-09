@@ -8,12 +8,10 @@ using namespace std;
 class MenuItem {
 private:
 	string m_nameOfCoffee;
-	int m_price;
+	Recipe m_coffeeRecipe;
 
 public:
-
-	void setCoffeeName(const Recipe &coffeRecipe);
-	void setCoffeePrice(const Recipe &coffeeRecipe);
+	MenuItem(const string& nameOfCoffee, const Recipe &coffeeRecipe);
+	void setCoffeeName(const string& newName);
 	string getCoffeeName() const;
-	int getCoffeePrice() const;
 };

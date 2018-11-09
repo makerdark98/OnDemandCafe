@@ -5,7 +5,7 @@ Recipe::Recipe(const vector<pair<Ingredient *, Amount>>& recipeData) {
 	m_recipeData = recipeData;
 }
 
-void Recipe::setCoffeeName(const string m_nameOfCoffee) {
+void Recipe::setCoffeeName(const string& m_nameOfCoffee) {
 	this->m_nameOfCoffee = m_nameOfCoffee;
 }
 
