@@ -14,7 +14,12 @@ string Recipe::getCoffeeName() const {
 }
 
 int Recipe::getCoffeePrice() const {
-	return price;
+	int retPrice=0;
+
+	for (auto i : m_recipeData) {
+		retPrice+=i.first->getUnitPrice()*(i.second);
+	}
+	return retPrice;
 }
 
 Recipe Recipe::append(const pair<Ingredient *, Amount>& newIngredient)const {
@@ -32,19 +37,14 @@ Recipe Recipe::operator+(const pair<Ingredient *, Amount>& newIngredient)const {
 bool Recipe::operator==(const Recipe& recipeData) {
 
 
+
 }
 
 const bool Recipe::equals(const Recipe& recipeData) const {
+	
 
 
 
-}
-
-void Recipe::priceCalculate(const vector<pair<Ingredient *, Amount>>& recipeData) {
-	price = 0;
-	for (auto i : recipeData) {
-		 price+= getUnitPrice(i.first)*(i.second);
-	}
 }
 
 

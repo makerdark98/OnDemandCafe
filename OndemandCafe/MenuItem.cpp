@@ -5,7 +5,7 @@ void MenuItem::setCoffeeName(const Recipe &coffeeRecipe) {
 }
 
 void MenuItem::setCoffeePrice(const Recipe &coffeeRecipe) {
-	price = coffeeRecipe.getCoffeePrice();
+	m_price = coffeeRecipe.getCoffeePrice();
 }
 
 string MenuItem::getCoffeeName()const {

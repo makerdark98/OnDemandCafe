@@ -12,7 +12,7 @@ void Menu::deleteMenuItem(const vector<MenuItem> &menuList,const MenuItem& menuN
 
 	for (auto i : menuList) {
 		if (i.getCoffeeName() == menuName.getCoffeeName()) {
-			//menuList.erase(menuName); 아직 잘 모르겠어서 생각하는 중..
+			// TODO: menuList.erase(menuName); 아직 잘 모르겠어서 생각하는 중..
 		}
 	}
 
