@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Recipe.h"
 class Barista
 {
