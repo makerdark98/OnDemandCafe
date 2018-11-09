@@ -14,6 +14,5 @@ public:
 	void deleteMenuItem(const MenuItem &menuName);
 	void modifyMenuName(const string& originName, const string& newName);
 	vector<MenuItem> getMenuItem() const;
-	
 };
 

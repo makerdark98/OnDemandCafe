@@ -1,5 +1,6 @@
 #include "MenuItem.h"
 
+
 MenuItem::MenuItem(const string& nameOfCoffee, const Recipe &coffeeRecipe) :m_coffeeRecipe(coffeeRecipe) {
 	m_nameOfCoffee = nameOfCoffee;
 }

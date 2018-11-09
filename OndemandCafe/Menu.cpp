@@ -3,7 +3,6 @@
 Menu::Menu(const vector<MenuItem> &menuList) {
 	m_menuList = menuList;
 }
-
 void Menu::addMenuItem(const MenuItem& menuName) {
 	m_menuList.push_back(menuName);
 }

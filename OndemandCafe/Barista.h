@@ -1,5 +1,8 @@
 #pragma once
-
+#include<string>
+#include<vector>
+#include<utility>
+#include "Coffee.h"
 class Barista
 {
 public:

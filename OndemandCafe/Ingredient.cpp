@@ -1,21 +1,25 @@
 #include "Ingredient.h"
 
-Ingredient::Ingredient(const string& name) :name(name) {
+Ingredient::Ingredient(const string& name) :m_name(name) {
 }
 
 Ingredient::~Ingredient(){
 }
 
 int Ingredient::getPrice() {
-	return price;
+	return m_price;
 }
 
 int Ingredient::getUnitPrice() {
-	return unitPrice;
+	return m_unitPrice;
+}
+
+string Ingredient::getName() {
+	return m_name;
 }
 
 const bool Ingredient::equals(const Ingredient& others)const {
-	if (name == others.name){
+	if (m_name == others.m_name){
 		return true;
 	}
 	else {
@@ -24,15 +28,5 @@ const bool Ingredient::equals(const Ingredient& others)const {
 }
 
 const bool Ingredient::operator==(const Ingredient& others)const {
-	Ingredient::equals(others);
-
-
-
-Ingredient::Ingredient()
-{
-}
-
-
-Ingredient::~Ingredient()
-{
+	return Ingredient::equals(others);
 }
