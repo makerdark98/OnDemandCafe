@@ -15,5 +15,3 @@ public:
 	void modifyMenuName(const string& originName, const string& newName);
 	vector<MenuItem> getMenuItem() const;
 };
-
-#endif // !OOP_PROJECT_MENU_H

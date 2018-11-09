@@ -18,9 +18,8 @@ public:
 	
 	Recipe(const vector<pair<Ingredient *, Amount>>& recipeData);
 	string getCoffeeName() const;
-	void setCoffeeName(const string m_nameOfCoffee);
+	void setCoffeeName(const string& m_nameOfCoffee);
 
-	string getCoffeeName() const;
 	int getCoffeePrice() const;
 	Recipe append(const pair<Ingredient *, Amount>& newIngredient)const;
 	Recipe operator+(const pair<Ingredient *, Amount> &newIngredient)const;

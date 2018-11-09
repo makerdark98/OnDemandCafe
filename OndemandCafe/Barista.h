@@ -1,5 +1,6 @@
 #pragma once
 #include "Recipe.h"
+#include "Coffee.h"
 class Barista
 {
 public:

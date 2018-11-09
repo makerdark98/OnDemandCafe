@@ -35,16 +35,11 @@ Recipe Recipe::operator+(const pair<Ingredient *, Amount>& newIngredient)const {
 }
 
 bool Recipe::operator==(const Recipe& recipeData) {
-
-
-
+	return true; // TODO: to implement
 }
 
 const bool Recipe::equals(const Recipe& recipeData) const {
-	
-
-
-
+	return true; // TODO: to implement
 }
 
 
