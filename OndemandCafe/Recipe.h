@@ -1,9 +1,6 @@
 #pragma once
 
-#ifndef OOP_PROJECT_RECIPE_H
-#define OOP_PROJECT_RECIPE_H
-
-typedef double Amount;
+typedef int Amount;
 
 #include <string>
 #include <vector>
@@ -17,7 +14,6 @@ class Recipe{
 private:
 	string m_nameOfCoffee;
 	vector< pair<Ingredient *, Amount>>m_recipeData;
-	int price;
 public:
 	
 	Recipe(const vector<pair<Ingredient *, Amount>>& recipeData);
@@ -28,11 +24,6 @@ public:
 	Recipe operator+(const pair<Ingredient *, Amount> &newIngredient)const;
 	bool operator==(const Recipe& recipeData);
 	const bool equals(const Recipe& recipeData)const;
-	void priceCalculate(const vector<pair<Ingredient *, Amount>>& recipeData);
 
-	
+
 };
-
-
-#endif //OOP_PROJECT_RECIPE_H
-

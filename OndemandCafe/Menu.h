@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef OOP_PROJECT_MENU_H
-#define OOP_PROJECT_MENU_H
-
 #include <vector>
 #include "MenuItem.h"
 
@@ -20,4 +17,3 @@ public:
 
 };
 
-#endif // !OOP_PROJECT_MENU_H
