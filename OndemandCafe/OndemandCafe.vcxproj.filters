@@ -45,6 +45,9 @@
     <ClCompile Include="Bill.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CafeFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Barista.h">
@@ -77,5 +80,16 @@
     <ClInclude Include="Cafe.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CafeFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="menu.config">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="cafe.config">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

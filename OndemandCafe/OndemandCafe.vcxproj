@@ -145,6 +145,7 @@
     <ClCompile Include="Barista.cpp" />
     <ClCompile Include="Bill.cpp" />
     <ClCompile Include="Cafe.cpp" />
+    <ClCompile Include="CafeFactory.cpp" />
     <ClCompile Include="Coffee.cpp" />
     <ClCompile Include="CoffeeBean.cpp" />
     <ClCompile Include="Ingredient.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Barista.h" />
     <ClInclude Include="Bill.h" />
     <ClInclude Include="Cafe.h" />
+    <ClInclude Include="CafeFactory.h" />
     <ClInclude Include="Coffee.h" />
     <ClInclude Include="CoffeeBean.h" />
     <ClInclude Include="Ingredient.h" />
@@ -164,6 +166,12 @@
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="Recipe.h" />
     <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="menu.config">
+      <SubType>Designer</SubType>
+    </Text>
+    <Text Include="cafe.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
