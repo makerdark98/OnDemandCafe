@@ -1,13 +1,15 @@
 #include "MenuItem.h"
 
 
-MenuItem::MenuItem(const string& nameOfCoffee, const Recipe &coffeeRecipe) :m_coffeeRecipe(coffeeRecipe) {
-	m_nameOfCoffee = nameOfCoffee;
+MenuItem::MenuItem(const string& nameOfCoffee, const Recipe &coffeeRecipe) :m_recipe(coffeeRecipe) {
 }
 
-string MenuItem::getCoffeeName()const {
-	return m_nameOfCoffee;
+const Recipe& MenuItem::getRecipe() const
+{
+	return m_recipe;
 }
-void MenuItem::setCoffeeName(const string& newName) {
-	// TODO : to implement
+
+Recipe & MenuItem::getRecipe()
+{
+	return m_recipe;
 }

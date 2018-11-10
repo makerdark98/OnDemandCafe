@@ -7,11 +7,11 @@ using namespace std;
 
 class MenuItem {
 private:
-	string m_nameOfCoffee;
-	Recipe m_coffeeRecipe;
+	Recipe m_recipe;
 
 public:
 	MenuItem(const string& nameOfCoffee, const Recipe &coffeeRecipe);
-	void setCoffeeName(const string& newName);
-	string getCoffeeName() const;
+	const Recipe& getRecipe() const;
+	Recipe& getRecipe();
+	
 };

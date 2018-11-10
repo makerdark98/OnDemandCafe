@@ -13,74 +13,101 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Cafe">
+      <UniqueIdentifier>{54b4db55-f0f7-4bc8-9594-2ce479b7566b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cafe">
+      <UniqueIdentifier>{fb91443a-5eda-4f87-afb9-06dcd4957f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Customer">
+      <UniqueIdentifier>{4cede268-82b4-4e3d-899f-c0b69275b4de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Customer">
+      <UniqueIdentifier>{3ea2bdfb-b7cd-4b76-9518-9cf2eb7b4c22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Recipe.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Cafe</Filter>
     </ClCompile>
     <ClCompile Include="Barista.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Coffee.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CoffeeBean.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Ingredient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MenuItem.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Cafe</Filter>
     </ClCompile>
     <ClCompile Include="Cafe.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Cafe</Filter>
     </ClCompile>
-    <ClCompile Include="Bill.cpp">
+    <ClCompile Include="Coffee.cpp">
+      <Filter>Source Files\Cafe</Filter>
+    </ClCompile>
+    <ClCompile Include="CoffeeBean.cpp">
+      <Filter>Source Files\Cafe</Filter>
+    </ClCompile>
+    <ClCompile Include="Ingredient.cpp">
+      <Filter>Source Files\Cafe</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\Cafe</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuItem.cpp">
+      <Filter>Source Files\Cafe</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CafeFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Bill.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CliCustomer.cpp">
+      <Filter>Source Files\Customer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Barista.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Coffee.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CoffeeBean.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Ingredient.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Recipe.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MenuItem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CafeFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cafe.h">
+      <Filter>Header Files\Cafe</Filter>
+    </ClInclude>
+    <ClInclude Include="Barista.h">
+      <Filter>Header Files\Cafe</Filter>
+    </ClInclude>
+    <ClInclude Include="Coffee.h">
+      <Filter>Header Files\Cafe</Filter>
+    </ClInclude>
+    <ClInclude Include="CoffeeBean.h">
+      <Filter>Header Files\Cafe</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuItem.h">
+      <Filter>Header Files\Cafe</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\Cafe</Filter>
+    </ClInclude>
+    <ClInclude Include="Ingredient.h">
+      <Filter>Header Files\Cafe</Filter>
+    </ClInclude>
+    <ClInclude Include="Recipe.h">
+      <Filter>Header Files\Cafe</Filter>
     </ClInclude>
     <ClInclude Include="Bill.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Cafe.h">
+    <ClInclude Include="Customer.h">
+      <Filter>Header Files\Customer</Filter>
+    </ClInclude>
+    <ClInclude Include="CliCustomer.h">
+      <Filter>Header Files\Customer</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CafeFactory.h">
+    <ClInclude Include="resource1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

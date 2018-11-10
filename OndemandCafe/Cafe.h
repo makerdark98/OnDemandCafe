@@ -9,6 +9,8 @@ protected:
 	Menu m_menu;
 	Barista m_Barista;
 public:
+	Cafe();
+	virtual ~Cafe();
 	const Menu& getMenu() const;
 	const Bill orderMenu() const;
 	const Bill orderCustom(vector<pair<Ingredient*, Amount> > customOrderList) const;

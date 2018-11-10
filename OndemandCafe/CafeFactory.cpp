@@ -68,6 +68,11 @@ CafeFactory & CafeFactory::getInstance()
 	return *(m_instance.get());
 }
 
+Cafe CafeFactory::createCafe()
+{
+	return Cafe();
+}
+
 void CafeFactory::setCafeConfig(const string & cafeConfig)
 {
 	m_cafeConfigFileName = cafeConfig;
