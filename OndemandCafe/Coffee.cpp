@@ -1,27 +1,20 @@
-#include<iostream>
-#include<string>
-#include<utility>
-#include<vector>
 #include "Coffee.h"
-#include "Recipe.h"
-#include"Ingredient.h"
-using namespace std;
 
 Coffee::Coffee(const Recipe& recipe) : m_recipe(recipe){
-
 }
 
-Coffee::~Coffee()
-{
+Coffee::~Coffee(){
 }
 
-string Coffee::getName()
-{
+const string Coffee::getName()const{
 	return m_recipe.getCoffeeName();
 }
 
-const Recipe Coffee::getRecipe() const
-{
+const int Coffee::getPrice() const{
+	return m_recipe.getCoffeePrice();
+}
+
+const Recipe Coffee::getRecipe() const{
 	return m_recipe;
 }
 

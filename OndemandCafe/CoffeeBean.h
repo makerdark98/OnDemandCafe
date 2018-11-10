@@ -1,7 +1,8 @@
 #pragma once
 #include<string>
-using namespace std;
 #include "Ingredient.h"
+using namespace std;
+
 class CoffeeBean:public Ingredient
 {
 private:
@@ -9,7 +10,8 @@ private:
 public:
 	CoffeeBean(const string& origin);
 	~CoffeeBean();
-	bool equals(const CoffeeBean& otherCoffeeBean);
+	const bool equals(const CoffeeBean& otherCoffeeBean)const;
+	const bool operator==(const CoffeeBean& otherCoffeeBean)const;
 	const string getName() const;
 };
 
