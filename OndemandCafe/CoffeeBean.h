@@ -11,6 +11,7 @@ public:
 	CoffeeBean(const string& origin);
 	~CoffeeBean();
 	const bool equals(const CoffeeBean& otherCoffeeBean)const;
+	const bool operator==(const CoffeeBean& otherCoffeeBean)const;
 	const string getName() const;
 };
 

@@ -15,8 +15,11 @@ const bool CoffeeBean::equals(const CoffeeBean& otherCoffeeBean)const{
 	}
 }
 
-const string CoffeeBean::getName() const
-{
+const bool CoffeeBean::operator==(const CoffeeBean & otherCoffeeBean) const{
+	return CoffeeBean::equals(otherCoffeeBean);
+}
+
+const string CoffeeBean::getName() const{
 	return m_origin;
 }
 

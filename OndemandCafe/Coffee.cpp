@@ -1,20 +1,20 @@
 #include "Coffee.h"
 
 Coffee::Coffee(const Recipe& recipe) : m_recipe(recipe){
-
 }
 
-Coffee::~Coffee()
-{
+Coffee::~Coffee(){
 }
 
-const string Coffee::getName()const
-{
+const string Coffee::getName()const{
 	return m_recipe.getCoffeeName();
 }
 
-const Recipe Coffee::getRecipe() const
-{
+const int Coffee::getPrice() const{
+	return m_recipe.getCoffeePrice();
+}
+
+const Recipe Coffee::getRecipe() const{
 	return m_recipe;
 }
 
