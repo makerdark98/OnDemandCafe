@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Recipe.h"
+using namespace std;
 
 class Coffee
 {
@@ -9,8 +10,8 @@ private:
 public:
 	Coffee(const Recipe& recipe);
 	~Coffee();
-	string getName();
+	const string getName()const;
+	const int getPrice() const;
 	const Recipe getRecipe() const;
-
 };
 

@@ -1,13 +1,12 @@
 #include "CoffeeBean.h"
 
-
 CoffeeBean::CoffeeBean(const string& origin):Ingredient("coffeeBean"),m_origin(origin){
 }
 
 CoffeeBean::~CoffeeBean(){
 }
 
-bool CoffeeBean::equals(const CoffeeBean& otherCoffeeBean) {
+const bool CoffeeBean::equals(const CoffeeBean& otherCoffeeBean)const{
 	if (m_origin == otherCoffeeBean.getName()) {
 		return true;
 	}
@@ -16,8 +15,11 @@ bool CoffeeBean::equals(const CoffeeBean& otherCoffeeBean) {
 	}
 }
 
-const string CoffeeBean::getName() const
-{
+const bool CoffeeBean::operator==(const CoffeeBean & otherCoffeeBean) const{
+	return CoffeeBean::equals(otherCoffeeBean);
+}
+
+const string CoffeeBean::getName() const{
 	return m_origin;
 }
 
