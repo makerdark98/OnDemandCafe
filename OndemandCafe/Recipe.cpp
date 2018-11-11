@@ -57,7 +57,7 @@ int Recipe::getCoffeePrice() const {
 	int retPrice=0;
 
 	for (const auto& i : m_recipeData) {
-		retPrice = i.getPrice();
+		retPrice += i.getPrice();
 	}
 	return retPrice;
 }
