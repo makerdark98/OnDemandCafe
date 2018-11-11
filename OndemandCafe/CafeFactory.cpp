@@ -29,45 +29,69 @@ bool CafeFactory::isCoffeeBean(const string & ingredientName)
 
 Menu CafeFactory::createMenu()
 {
-	ifstream cafeConfig;
-	cafeConfig.open(m_cafeConfigFileName);
-	getline(cafeConfig, m_coffeeBeanString);
-	cafeConfig.close();
+	Menu& result = readMenuConfig();
 
-	ifstream menuConfig;
-	menuConfig.open(m_menuConfigFileName);
-	string rawItem;
-	vector<Recipe> result;
-	while (getline(menuConfig, rawItem)) {
-		auto parsedItem = split(rawItem, ',');
-		string name = parsedItem[0];
-		vector<RecipeData> recipeData;
-		shared_ptr<Ingredient> ingredient=nullptr;
-		for (unsigned int i = 1; i < parsedItem.size()-1; i+=2) {
-			if (isCoffeeBean(parsedItem[i])) {
-				ingredient = make_shared<CoffeeBean>();
-			}
-			else {
-				ingredient = make_shared<Ingredient>(parsedItem[i]);
-			}
-			recipeData.push_back(RecipeData(*ingredient, stoi(parsedItem[i+1])));
-		}
-	}
-
-	menuConfig.close();
-
-	return Menu(result);
+	return result;
 }
 
 CafeFactory::CafeFactory()
 {
 	setCafeConfig("cafe.config");
+	setIngredientConfig("ingredient.config");
 	setMenuConfig("menu.config");
+}
+
+void CafeFactory::readCafeConfig()
+{
+	ifstream cafeConfig;
+	cafeConfig.open(m_cafeConfigFileName);
+	getline(cafeConfig, m_coffeeBeanString);
+	cafeConfig.close();
+}
+
+void CafeFactory::readIngredientConfig()
+{
+	ifstream ingredientConfig;
+	ingredientConfig.open(m_ingredientConfigFileName);
+	string rawData;
+	while (getline(ingredientConfig, rawData)) {
+		vector<string> parsedData = split(rawData, ',');
+		for (unsigned int i = 0; i < parsedData.size() - 1; i += 2) {
+			ingredientUnitPrice[parsedData[i]] = stoi(parsedData[i + 1]);
+		}
+	}
+}
+
+Menu CafeFactory::readMenuConfig()
+{
+	ifstream menuConfig;
+	menuConfig.open(m_menuConfigFileName);
+	string rawItem;
+	vector<Recipe> result;
+	while (getline(menuConfig, rawItem)) {
+		vector<RecipeData> recipeData;
+		vector<string> parsedItem = split(rawItem, ',');
+		string name = parsedItem[0];
+		shared_ptr<Ingredient> ingredient=nullptr;
+		for (unsigned int i = 1; i < parsedItem.size()-1; i+=2) {
+			if (isCoffeeBean(parsedItem[i])) {
+				ingredient = make_shared<CoffeeBean>("Ethiopia", ingredientUnitPrice[parsedItem[i]]);
+			}
+			else {
+				ingredient = make_shared<Ingredient>(parsedItem[i], ingredientUnitPrice[parsedItem[i]]);
+			}
+			recipeData.push_back(RecipeData(*ingredient, stoi(parsedItem[i+1])));
+		}
+		result.push_back(Recipe(name,recipeData));
+	}
+
+	menuConfig.close();
+	return Menu(result);
+
 }
 
 CafeFactory & CafeFactory::getInstance()
 {
-	// TODO: 여기에 반환 구문을 삽입합니다.
 	call_once(CafeFactory::m_OnceFlag, []() {
 		m_instance.reset(new CafeFactory);
 	});
@@ -77,12 +101,19 @@ CafeFactory & CafeFactory::getInstance()
 
 Cafe CafeFactory::createCafe()
 {
-	return Cafe();
+	readCafeConfig();
+	readIngredientConfig();
+	return Cafe(createMenu());
 }
 
 void CafeFactory::setCafeConfig(const string & cafeConfig)
 {
 	m_cafeConfigFileName = cafeConfig;
+}
+
+void CafeFactory::setIngredientConfig(const string & ingredientConfig)
+{
+	m_ingredientConfigFileName = ingredientConfig;
 }
 
 void CafeFactory::setMenuConfig(const string & menuConfig)

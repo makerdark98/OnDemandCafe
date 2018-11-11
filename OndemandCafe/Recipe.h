@@ -11,8 +11,8 @@ using Amount = int;
 using namespace std;
 class RecipeData {
 private:
-	Ingredient* m_ingredient;
-	Amount* m_amount;
+	shared_ptr<Ingredient> m_ingredient;
+	shared_ptr<Amount> m_amount;
 public:
 	RecipeData(const Ingredient& ingredient, const Amount& amount);
 	virtual ~RecipeData();
@@ -27,6 +27,7 @@ private:
 	vector< RecipeData >m_recipeData;
 public:
 	
+	Recipe(const string& nameOfCoffee, const vector<RecipeData>& recipeData);
 	Recipe(const vector<RecipeData>& recipeData);
 	string getCoffeeName() const;
 	void setCoffeeName(const string& m_nameOfCoffee);

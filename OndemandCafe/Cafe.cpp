@@ -1,7 +1,7 @@
 #include "Cafe.h"
 
-Cafe::Cafe()
-	:m_menu(vector<Recipe>())
+Cafe::Cafe(const Menu& menu)
+	:m_menu(menu)
 {
 	
 }

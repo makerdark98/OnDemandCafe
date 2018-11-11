@@ -10,7 +10,7 @@ private:
 	string m_name;
 	Price m_unitPrice;
 public:
-	Ingredient(const string& name);
+	Ingredient(const string& name, const Price& price);
 	~Ingredient();
 	const Price getUnitPrice(void)const;
 	const string getName(void)const;

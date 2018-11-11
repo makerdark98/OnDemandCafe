@@ -1,6 +1,12 @@
 #include "Recipe.h"
 
 
+Recipe::Recipe(const string & nameOfCoffee, const vector<RecipeData>& recipeData)
+	:m_nameOfCoffee(nameOfCoffee), m_recipeData(recipeData)
+{
+	
+}
+
 Recipe::Recipe(const vector<RecipeData>& recipeData) {
 	m_recipeData = recipeData;
 }
@@ -44,17 +50,12 @@ const bool Recipe::equals(const Recipe& recipeData) const {
 
 RecipeData::RecipeData(const Ingredient & ingredient, const Amount & amount)
 {
-	m_ingredient = new Ingredient(ingredient);
-	m_amount = new Amount(amount);
-	
+	m_ingredient = make_shared<Ingredient>(ingredient);
+	m_amount = make_shared<Amount>(amount);
 }
 
 RecipeData::~RecipeData()
 {
-	if (m_ingredient != nullptr)
-		delete m_ingredient;
-	if (m_amount != nullptr)
-		delete m_amount;
 }
 
 const Price RecipeData::getPrice() const

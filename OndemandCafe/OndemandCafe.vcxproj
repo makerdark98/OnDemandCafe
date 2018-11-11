@@ -166,8 +166,6 @@
     <ClInclude Include="Ingredient.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Recipe.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="resource1.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +175,12 @@
     <Text Include="cafe.config">
       <SubType>Designer</SubType>
     </Text>
+    <Text Include="ingredient.config">
+      <SubType>Designer</SubType>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

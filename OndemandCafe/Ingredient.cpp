@@ -1,6 +1,6 @@
 #include "Ingredient.h"
 
-Ingredient::Ingredient(const string& name) :m_name(name) {
+Ingredient::Ingredient(const string& name, const Price& unitPrice) :m_name(name), m_unitPrice(unitPrice) {
 }
 
 Ingredient::~Ingredient(){

@@ -9,7 +9,7 @@ protected:
 	Menu m_menu;
 	Barista m_Barista;
 public:
-	Cafe();
+	Cafe(const Menu& menu);
 	virtual ~Cafe();
 	const Menu& getMenu() const;
 	const Bill orderMenu() const;
