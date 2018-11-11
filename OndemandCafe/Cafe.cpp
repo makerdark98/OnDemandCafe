@@ -11,6 +11,11 @@ Cafe::~Cafe()
 {
 }
 
+Menu & Cafe::getMenu()
+{
+	return m_menu;
+}
+
 const Menu & Cafe::getMenu() const
 {
 	return m_menu;

@@ -13,6 +13,7 @@ protected:
 public:
 	Cafe(const Menu& menu, const IngredientList& ingredients);
 	virtual ~Cafe();
+	Menu& getMenu();
 	const Menu& getMenu() const;
 	const IngredientList& getIngredientList() const;
 	Coffee orderMenu(const unsigned int& orderNumber) const;

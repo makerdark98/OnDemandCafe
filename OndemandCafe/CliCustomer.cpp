@@ -109,7 +109,22 @@ void CliCustomer::orderCustom() const
 			cout << data[i] << endl;
 		}
 	}
-	cout << m_cafe.orderCustom(data) << endl;
+	Coffee& coffee = m_cafe.orderCustom(data);
+	if (coffee.getName() == "") {
+		cout << "이름을 지으시겠습니까?(Y/n) : ";
+		char c;
+		cin >> c;
+		if (tolower(c) == 'y') {
+			cout << "새로운 메뉴의 이름을 입력해주세요 : ";
+			cin.ignore();
+			string name;
+			getline(cin, name);
+			Recipe recipe(name, data);
+			m_cafe.getMenu().addMenuItem(recipe);
+			coffee.setName(name);
+		}
+	}
+	cout << coffee << endl;
 }
 
 void CliCustomer::exit()
