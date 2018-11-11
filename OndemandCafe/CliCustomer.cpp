@@ -50,11 +50,17 @@ void CliCustomer::orderCommon() const
 		<< m_cafe.getMenu();
 	int order;
 	cin >> order;
-	cout << m_cafe.orderMenu(order);
+	cout << m_cafe.orderMenu(order) << endl;;
 }
 
 void CliCustomer::orderCustom() const
 {
+}
+
+void CliCustomer::exit()
+{
+	cout << "Good Bye" << endl;
+	bAgain = false;
 }
 
 OrderType CliCustomer::askOrder() const
@@ -72,9 +78,11 @@ OrderType CliCustomer::askOrder() const
 CliCustomer::CliCustomer(Cafe & cafe)
 	:Customer(cafe),
 	orderMap({
-		{0, OrderType("COMMON", bind(&CliCustomer::orderCommon, this))},
-		{1, OrderType("CUSTOM", bind(&CliCustomer::orderCustom, this))}
-		})
+		{0, OrderType("Common", bind(&CliCustomer::orderCommon, this))},
+		{1, OrderType("Custom", bind(&CliCustomer::orderCustom, this))},
+		{2, OrderType("Exit", bind(&CliCustomer::exit, this))}
+		}),
+	bAgain(true)
 {
 }
 
@@ -84,6 +92,8 @@ CliCustomer::~CliCustomer()
 }
 
 void CliCustomer::run() {
-	OrderType& orderType = askOrder();
-	orderType.m_func();
+	while (bAgain) {
+		OrderType& orderType = askOrder();
+		orderType.m_func();
+	}
 }

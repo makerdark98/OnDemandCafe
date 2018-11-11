@@ -20,9 +20,11 @@ class CliCustomer :
 {
 private:
 	const map<int, OrderType> orderMap;
+	bool bAgain;
 
 	void orderCommon() const;
 	void orderCustom() const;
+	void exit();
 	OrderType askOrder() const;
 
 public:
