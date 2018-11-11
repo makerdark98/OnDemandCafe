@@ -76,6 +76,6 @@ Recipe Recipe::operator+(const RecipeData& newIngredient)const {
 	return append(newIngredient);
 }
 
-bool Recipe::operator==(const Recipe& recipeData) {
+bool Recipe::operator==(const Recipe& recipeData) const{
 	return equals(recipeData);
 }

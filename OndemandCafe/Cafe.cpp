@@ -28,5 +28,11 @@ Coffee Cafe::orderMenu(const unsigned int& orderNumber) const
 
 Coffee Cafe::orderCustom(const Recipe& recipe) const
 {
-	return m_Barista.makeCoffee(recipe);
+	Coffee coffee = m_Barista.makeCoffee(recipe);
+	for (const auto& item : m_menu) {
+		if (coffee == item) {
+			coffee.setName(item.getCoffeeName());
+		}
+	}
+	return coffee;
 }

@@ -5,7 +5,7 @@ ostream & operator<<(ostream & os, const Ingredient & ingredient)
 {
 	os << "Ingredient Name : "
 		<< ingredient.getName()
-		<< "Unit Price : "
+		<< "\t\tUnit Price : "
 		<< ingredient.getUnitPrice();
 	return os;
 }
@@ -15,7 +15,7 @@ ostream & operator<<(ostream & os, const RecipeData & recipeData)
 	const Ingredient& ingredient = recipeData.getIngredient();
 	os << "Ingredient Name : "
 		<< ingredient.getName()
-		<< "Amount : "
+		<< "\t\tAmount : "
 		<< recipeData.getAmount();
 	return os;
 }
@@ -24,8 +24,7 @@ ostream & operator<<(ostream & os, const Recipe & recipe)
 {
 	os << "Coffee Name :"
 		<< recipe.getCoffeeName()
-		<< "\t\t"
-		<< "Price :"
+		<< "\t\tPrice :"
 		<< recipe.getCoffeePrice();
 	return os;
 }
@@ -79,7 +78,8 @@ void CliCustomer::orderCommon() const
 {
 	cout << "아래 메뉴 중 원하시는 걸 선택해주세요"
 		<< endl
-		<< m_cafe.getMenu();
+		<< m_cafe.getMenu()
+		<< endl;
 	int order;
 	cin >> order;
 	cout << m_cafe.orderMenu(order) << endl;;
@@ -102,13 +102,14 @@ void CliCustomer::orderCustom() const
 		if (order == ingredients.size()) break;
 		cout << "조합할 양을 넣으세요" << endl;
 		cin >> amount;
+		system("cls");
 		data.push_back(RecipeData(ingredients[order], amount));
 		cout << "지금까지 조합된 리스트" << endl;
 		for (unsigned int i = 0; i < data.size(); i++) {
 			cout << data[i] << endl;
 		}
 	}
-	cout << m_cafe.orderCustom(data);
+	cout << m_cafe.orderCustom(data) << endl;
 }
 
 void CliCustomer::exit()

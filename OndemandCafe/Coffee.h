@@ -10,8 +10,12 @@ private:
 public:
 	Coffee(const Recipe& recipe);
 	~Coffee();
+
+	void setName(const string& newName);
 	const string getName()const;
 	const int getPrice() const;
 	const Recipe getRecipe() const;
+
+	bool operator==(const Recipe& recipe) const;
 };
 

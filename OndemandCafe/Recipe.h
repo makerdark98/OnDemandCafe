@@ -44,6 +44,6 @@ public:
 	const bool equals(const Recipe& recipeData)const;
 
 	Recipe operator+(const RecipeData& newIngredient)const;
-	bool operator==(const Recipe& recipeData);
+	bool operator==(const Recipe& recipeData) const;
 
 };
