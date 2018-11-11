@@ -48,6 +48,7 @@ const bool Recipe::equals(const Recipe& recipeData) const {
 	return true; // TODO: to implement
 }
 
+
 RecipeData::RecipeData(const Ingredient & ingredient, const Amount & amount)
 {
 	m_ingredient = make_shared<Ingredient>(ingredient);

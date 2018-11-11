@@ -1,36 +1,38 @@
 #include "CliCustomer.h"
 #include <iostream>
 
+ostream & operator<<(ostream & os, const Recipe & recipe)
+{
+	os << "Coffee Name :"
+		<< recipe.getCoffeeName()
+		<< "\t\t"
+		<< "Cost :"
+		<< recipe.getCoffeePrice();
+	return os;
+}
+
+ostream & operator<<(ostream & os, const Menu & menu)
+{
+	for (unsigned int i = 0; i < menu.size(); i++) {
+		os << i << "."
+			<< menu[i]
+			<< endl;
+	}
+	return os;
+}
+
+
 void CliCustomer::orderCommon() const
 {
-	cout << "아래 메뉴 중 원하시는 걸 선택해주세요" << endl;
-	printMenu();
+	cout << "아래 메뉴 중 원하시는 걸 선택해주세요"
+		<< endl
+		<< m_cafe.getMenu();
 	string order;
 	getline(cin, order);
 }
 
 void CliCustomer::orderCustom() const
 {
-}
-
-void CliCustomer::printMenuItem(const Recipe& item) const
-{
-	const Recipe& recipe = item;
-	cout << "Coffee Name : "
-		<< recipe.getCoffeeName()
-		<< " \t \t"
-		<< "Cost :"
-		<< recipe.getCoffeePrice()
-		<< endl;
-
-}
-
-void CliCustomer::printMenu() const
-{
-	const Menu& menu = m_cafe.getMenu();
-	for (auto item : menu) {
-		printMenuItem(item);
-	}
 }
 
 OrderType CliCustomer::askOrder() const
@@ -75,4 +77,3 @@ OrderType::OrderType(const string & name, function<void(void)> func)
 	m_name = name;
 	m_func = func;
 }
-
