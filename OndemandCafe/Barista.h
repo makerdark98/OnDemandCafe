@@ -6,7 +6,7 @@ using namespace std;
 class Barista
 {
 public:
-	Coffee makeCoffee(const Recipe& recipe);
+	Coffee makeCoffee(const Recipe& recipe) const;
 	Barista();
 	~Barista();
 };

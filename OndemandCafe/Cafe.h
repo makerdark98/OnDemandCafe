@@ -12,6 +12,6 @@ public:
 	Cafe(const Menu& menu);
 	virtual ~Cafe();
 	const Menu& getMenu() const;
-	const Bill orderMenu() const;
-	const Bill orderCustom(vector<pair<Ingredient*, Amount> > customOrderList) const;
+	Coffee orderMenu(const unsigned int& orderNumber) const;
+	Coffee orderCustom(vector<pair<Ingredient*, Amount> > customOrderList) const;
 };

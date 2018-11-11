@@ -15,12 +15,12 @@ const Menu & Cafe::getMenu() const
 	return m_menu;
 }
 
-const Bill Cafe::orderMenu() const
+Coffee Cafe::orderMenu(const unsigned int& orderNumber) const
 {
-	return Bill(vector<Coffee>());
+	return m_Barista.makeCoffee(m_menu[orderNumber]);
 }
 
-const Bill Cafe::orderCustom(vector<pair<Ingredient*, Amount>> customOrderList) const
+Coffee Cafe::orderCustom(vector<pair<Ingredient*, Amount>> customOrderList) const
 {
-	return Bill(vector<Coffee>());
+	return Coffee(Recipe(vector<RecipeData>()));
 }

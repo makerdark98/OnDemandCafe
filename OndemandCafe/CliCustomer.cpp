@@ -21,6 +21,16 @@ ostream & operator<<(ostream & os, const Menu & menu)
 	return os;
 }
 
+ostream & operator<<(ostream & os, const Coffee & coffee)
+{
+	os << "Coffee Name :"
+		<< coffee.getName()
+		<< "\nPrice :"
+		<< coffee.getPrice();
+
+	return os;
+}
+
 OrderType::OrderType(const string & name, function<void(void)> func)
 {
 	m_name = name;
@@ -38,8 +48,9 @@ void CliCustomer::orderCommon() const
 	cout << "아래 메뉴 중 원하시는 걸 선택해주세요"
 		<< endl
 		<< m_cafe.getMenu();
-	string order;
-	getline(cin, order);
+	int order;
+	cin >> order;
+	cout << m_cafe.orderMenu(order);
 }
 
 void CliCustomer::orderCustom() const
@@ -60,10 +71,10 @@ OrderType CliCustomer::askOrder() const
 
 CliCustomer::CliCustomer(Cafe & cafe)
 	:Customer(cafe),
-	orderMap({ 
+	orderMap({
 		{0, OrderType("COMMON", bind(&CliCustomer::orderCommon, this))},
 		{1, OrderType("CUSTOM", bind(&CliCustomer::orderCustom, this))}
-	})
+		})
 {
 }
 
