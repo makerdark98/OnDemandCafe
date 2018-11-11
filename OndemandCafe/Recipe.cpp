@@ -1,5 +1,24 @@
 #include "Recipe.h"
 
+RecipeData::RecipeData(const Ingredient & ingredient, const Amount & amount)
+{
+	m_ingredient = make_shared<Ingredient>(ingredient);
+	m_amount = make_shared<Amount>(amount);
+}
+
+RecipeData::~RecipeData()
+{
+}
+
+const Price RecipeData::getPrice() const
+{
+	return *m_amount * m_ingredient->getUnitPrice();
+}
+
+
+Recipe::Recipe(const vector<RecipeData>& recipeData) {
+	m_recipeData = recipeData;
+}
 
 Recipe::Recipe(const string & nameOfCoffee, const vector<RecipeData>& recipeData)
 	:m_nameOfCoffee(nameOfCoffee), m_recipeData(recipeData)
@@ -7,16 +26,16 @@ Recipe::Recipe(const string & nameOfCoffee, const vector<RecipeData>& recipeData
 	
 }
 
-Recipe::Recipe(const vector<RecipeData>& recipeData) {
-	m_recipeData = recipeData;
-}
-
-void Recipe::setCoffeeName(const string& m_nameOfCoffee) {
-	this->m_nameOfCoffee = m_nameOfCoffee;
+Recipe::~Recipe()
+{
 }
 
 string Recipe::getCoffeeName() const {
 	return m_nameOfCoffee;
+}
+
+void Recipe::setCoffeeName(const string& m_nameOfCoffee) {
+	this->m_nameOfCoffee = m_nameOfCoffee;
 }
 
 int Recipe::getCoffeePrice() const {
@@ -34,6 +53,10 @@ Recipe Recipe::append(const RecipeData& newIngredient)const {
 	return result;
 }
 
+const bool Recipe::equals(const Recipe& recipeData) const {
+	return true; // TODO: to implement
+}
+
 Recipe Recipe::operator+(const RecipeData& newIngredient)const {
 	Recipe result = *this;
 	result.append(newIngredient);
@@ -42,24 +65,4 @@ Recipe Recipe::operator+(const RecipeData& newIngredient)const {
 
 bool Recipe::operator==(const Recipe& recipeData) {
 	return true; // TODO: to implement
-}
-
-const bool Recipe::equals(const Recipe& recipeData) const {
-	return true; // TODO: to implement
-}
-
-
-RecipeData::RecipeData(const Ingredient & ingredient, const Amount & amount)
-{
-	m_ingredient = make_shared<Ingredient>(ingredient);
-	m_amount = make_shared<Amount>(amount);
-}
-
-RecipeData::~RecipeData()
-{
-}
-
-const Price RecipeData::getPrice() const
-{
-	return *m_amount * m_ingredient->getUnitPrice();
 }
