@@ -1,7 +1,7 @@
 #include "Recipe.h"
 
 
-Recipe::Recipe(const vector<pair<Ingredient *, Amount>>& recipeData) {
+Recipe::Recipe(const vector<pair<Ingredient& , Amount>>& recipeData) {
 	m_recipeData = recipeData;
 }
 
@@ -17,18 +17,18 @@ int Recipe::getCoffeePrice() const {
 	int retPrice=0;
 
 	for (auto i : m_recipeData) {
-		retPrice+=i.first->getUnitPrice()*(i.second);
+		retPrice+=i.first.getUnitPrice()*(i.second);
 	}
 	return retPrice;
 }
 
-Recipe Recipe::append(const pair<Ingredient *, Amount>& newIngredient)const {
+Recipe Recipe::append(const pair<Ingredient& , Amount>& newIngredient)const {
 	Recipe result = *this;
 	result.m_recipeData.push_back(newIngredient);
 	return result;
 }
 
-Recipe Recipe::operator+(const pair<Ingredient *, Amount>& newIngredient)const {
+Recipe Recipe::operator+(const pair<Ingredient& , Amount>& newIngredient)const {
 	Recipe result = *this;
 	result.append(newIngredient);
 	return result;
