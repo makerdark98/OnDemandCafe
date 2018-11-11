@@ -15,6 +15,21 @@ const Price RecipeData::getPrice() const
 	return *m_amount * m_ingredient->getUnitPrice();
 }
 
+const Ingredient & RecipeData::getIngredient() const
+{
+	return *m_ingredient;
+}
+
+const Amount & RecipeData::getAmount() const
+{
+	return *m_amount;
+}
+
+bool RecipeData::operator==(const RecipeData& recipeData) const
+{
+	return *m_ingredient == *recipeData.m_ingredient && *m_amount == *recipeData.m_amount;
+}
+
 
 Recipe::Recipe(const vector<RecipeData>& recipeData) {
 	m_recipeData = recipeData;
@@ -54,15 +69,13 @@ Recipe Recipe::append(const RecipeData& newIngredient)const {
 }
 
 const bool Recipe::equals(const Recipe& recipeData) const {
-	return true; // TODO: to implement
+	return m_recipeData == recipeData.m_recipeData; // TODO: to implement
 }
 
 Recipe Recipe::operator+(const RecipeData& newIngredient)const {
-	Recipe result = *this;
-	result.append(newIngredient);
-	return result;
+	return append(newIngredient);
 }
 
 bool Recipe::operator==(const Recipe& recipeData) {
-	return true; // TODO: to implement
+	return equals(recipeData);
 }

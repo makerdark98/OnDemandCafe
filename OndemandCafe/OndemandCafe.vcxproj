@@ -150,6 +150,7 @@
     <ClCompile Include="Coffee.cpp" />
     <ClCompile Include="CoffeeBean.cpp" />
     <ClCompile Include="Ingredient.cpp" />
+    <ClCompile Include="IngredientList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Recipe.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="CoffeeBean.h" />
     <ClInclude Include="Customer.h" />
     <ClInclude Include="Ingredient.h" />
+    <ClInclude Include="IngredientList.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Recipe.h" />
     <ClInclude Include="stdafx.h" />

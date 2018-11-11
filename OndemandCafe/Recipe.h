@@ -19,6 +19,10 @@ public:
 	virtual ~RecipeData();
 
 	const Price getPrice() const;
+	const Ingredient& getIngredient() const;
+	const Amount& getAmount() const;
+
+	bool operator==(const RecipeData& recipeData) const;
 };
 
 class Recipe{
