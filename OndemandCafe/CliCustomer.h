@@ -24,7 +24,7 @@ private:
 
 	void orderCommon() const;
 	void orderCustom() const;
-	void printMenuItem(const MenuItem& item) const;
+	void printMenuItem(const Recipe& item) const;
 	void printMenu() const;
 	OrderType askOrder() const;
 public:

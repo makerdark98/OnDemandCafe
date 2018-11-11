@@ -8,6 +8,7 @@ class CoffeeBean:public Ingredient
 private:
 	string m_origin;
 public:
+	CoffeeBean();
 	CoffeeBean(const string& origin);
 	~CoffeeBean();
 	const bool equals(const CoffeeBean& otherCoffeeBean)const;

@@ -6,7 +6,7 @@ Ingredient::Ingredient(const string& name) :m_name(name) {
 Ingredient::~Ingredient(){
 }
 
-const int Ingredient::getUnitPrice() const{
+const Price Ingredient::getUnitPrice() const{
 	return m_unitPrice;
 }
 

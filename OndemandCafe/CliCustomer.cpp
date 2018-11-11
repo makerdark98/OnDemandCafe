@@ -11,9 +11,9 @@ void CliCustomer::orderCustom() const
 {
 }
 
-void CliCustomer::printMenuItem(const MenuItem& item) const
+void CliCustomer::printMenuItem(const Recipe& item) const
 {
-	const Recipe& recipe = item.getRecipe();
+	const Recipe& recipe = item;
 	cout << "Coffee Name : "
 		<< recipe.getCoffeeName()
 		<< " Cost :"
@@ -56,7 +56,6 @@ CliCustomer::~CliCustomer()
 }
 
 void CliCustomer::run() {
-	const Menu& menu = m_cafe.getMenu();
 	OrderType& orderType = askOrder();
 	orderType.m_func();
 }

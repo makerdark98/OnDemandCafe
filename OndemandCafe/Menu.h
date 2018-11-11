@@ -1,19 +1,19 @@
 #pragma once
 
 #include <vector>
-#include "MenuItem.h"
+#include "Recipe.h"
 
 using namespace std;
 class Menu
 {
 private:
-	vector<MenuItem>m_menuList;
+	vector<Recipe>m_menuList;
 public:
-	Menu(const vector<MenuItem> &menuList);
-	void addMenuItem(const MenuItem &menuName);
+	Menu(const vector<Recipe> &menuList);
+	void addMenuItem(const Recipe &menuName);
 	void deleteMenuItem(const string& menuName);
 	void modifyMenuName(const string& originName, const string& newName);
-	vector<MenuItem> getMenuItem() const;
-	vector<MenuItem>::const_iterator begin() const;
-	vector<MenuItem>::const_iterator end() const;
+	vector<Recipe> getMenuItem() const;
+	vector<Recipe>::const_iterator begin() const;
+	vector<Recipe>::const_iterator end() const;
 };

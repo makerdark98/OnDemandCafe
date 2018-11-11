@@ -152,7 +152,6 @@
     <ClCompile Include="Ingredient.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="MenuItem.cpp" />
     <ClCompile Include="Recipe.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,7 +165,6 @@
     <ClInclude Include="Customer.h" />
     <ClInclude Include="Ingredient.h" />
     <ClInclude Include="Menu.h" />
-    <ClInclude Include="MenuItem.h" />
     <ClInclude Include="Recipe.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />

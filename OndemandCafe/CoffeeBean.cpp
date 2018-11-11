@@ -1,5 +1,9 @@
 #include "CoffeeBean.h"
 
+CoffeeBean::CoffeeBean():Ingredient("coffeeBean"),m_origin("Ethiopia")
+{
+}
+
 CoffeeBean::CoffeeBean(const string& origin):Ingredient("coffeeBean"),m_origin(origin){
 }
 

@@ -37,19 +37,26 @@ Menu CafeFactory::createMenu()
 	ifstream menuConfig;
 	menuConfig.open(m_menuConfigFileName);
 	string rawItem;
+	vector<Recipe> result;
 	while (getline(menuConfig, rawItem)) {
 		auto parsedItem = split(rawItem, ',');
 		string name = parsedItem[0];
-		for (unsigned int i = 1; i < parsedItem.size(); i++) {
+		vector<RecipeData> recipeData;
+		shared_ptr<Ingredient> ingredient=nullptr;
+		for (unsigned int i = 1; i < parsedItem.size()-1; i+=2) {
 			if (isCoffeeBean(parsedItem[i])) {
-				// TODO CoffeeBean
+				ingredient = make_shared<CoffeeBean>();
 			}
+			else {
+				ingredient = make_shared<Ingredient>(parsedItem[i]);
+			}
+			recipeData.push_back(RecipeData(*ingredient, stoi(parsedItem[i+1])));
 		}
 	}
 
 	menuConfig.close();
 
-	return Menu(vector<MenuItem>());
+	return Menu(result);
 }
 
 CafeFactory::CafeFactory()
