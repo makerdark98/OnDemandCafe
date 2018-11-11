@@ -19,17 +19,16 @@ class CliCustomer :
 	public Customer
 {
 private:
-
 	const map<int, OrderType> orderMap;
 
 	void orderCommon() const;
 	void orderCustom() const;
-	void printMenuItem(const Recipe& item) const;
-	void printMenu() const;
 	OrderType askOrder() const;
+
 public:
 	CliCustomer(Cafe& cafe);;
 	~CliCustomer();
+
 	void run();
 };
 

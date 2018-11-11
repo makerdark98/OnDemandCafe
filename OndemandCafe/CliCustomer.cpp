@@ -21,6 +21,17 @@ ostream & operator<<(ostream & os, const Menu & menu)
 	return os;
 }
 
+OrderType::OrderType(const string & name, function<void(void)> func)
+{
+	m_name = name;
+	m_func = func;
+}
+
+ostream & operator<<(ostream & os, OrderType & ot)
+{
+	os << ot.m_name;
+	return os;
+}
 
 void CliCustomer::orderCommon() const
 {
@@ -64,16 +75,4 @@ CliCustomer::~CliCustomer()
 void CliCustomer::run() {
 	OrderType& orderType = askOrder();
 	orderType.m_func();
-}
-
-ostream & operator<<(ostream & os, OrderType & ot)
-{
-	os << ot.m_name;
-	return os;
-}
-
-OrderType::OrderType(const string & name, function<void(void)> func)
-{
-	m_name = name;
-	m_func = func;
 }
