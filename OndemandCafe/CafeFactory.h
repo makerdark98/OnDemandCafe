@@ -14,6 +14,7 @@ private:
 
 	bool isCoffeeBean(const string& ingredientName);
 	Menu createMenu();
+	IngredientList createIngredientLists();
 	CafeFactory();
 	CafeFactory(const CafeFactory &) = delete;
 	CafeFactory &operator=(const CafeFactory &) = delete;
@@ -21,7 +22,6 @@ private:
 	void readCafeConfig();
 	void readIngredientConfig();
 	Menu readMenuConfig();
-
 
 public:
 	static CafeFactory& getInstance();

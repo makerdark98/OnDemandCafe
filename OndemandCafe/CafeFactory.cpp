@@ -34,6 +34,15 @@ Menu CafeFactory::createMenu()
 	return result;
 }
 
+IngredientList CafeFactory::createIngredientLists()
+{
+	IngredientList ingredients;
+	for (auto item : ingredientUnitPrice) {
+		ingredients.append(Ingredient(item.first, item.second));
+	}
+	return ingredients;
+}
+
 CafeFactory::CafeFactory()
 {
 	setCafeConfig("cafe.config");
@@ -103,7 +112,7 @@ Cafe CafeFactory::createCafe()
 {
 	readCafeConfig();
 	readIngredientConfig();
-	return Cafe(createMenu());
+	return Cafe(createMenu(), createIngredientLists());
 }
 
 void CafeFactory::setCafeConfig(const string & cafeConfig)

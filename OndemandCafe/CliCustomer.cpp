@@ -90,7 +90,8 @@ void CliCustomer::orderCustom() const
 	vector<RecipeData> data;
 	const IngredientList& ingredients = m_cafe.getIngredientList();
 	int order;
-	do {
+	Amount amount;
+	while (true) {
 		cout << "조합할 재료를 고르세요"
 			<< endl
 			<< ingredients
@@ -98,11 +99,16 @@ void CliCustomer::orderCustom() const
 			<< ". 조합 끝내기"
 			<< endl;
 		cin >> order;
+		if (order == ingredients.size()) break;
+		cout << "조합할 양을 넣으세요" << endl;
+		cin >> amount;
+		data.push_back(RecipeData(ingredients[order], amount));
 		cout << "지금까지 조합된 리스트" << endl;
 		for (unsigned int i = 0; i < data.size(); i++) {
 			cout << data[i] << endl;
 		}
-	} while (order != ingredients.size());
+	}
+	cout << m_cafe.orderCustom(data);
 }
 
 void CliCustomer::exit()
