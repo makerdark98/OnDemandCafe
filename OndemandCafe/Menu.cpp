@@ -30,10 +30,6 @@ vector<Recipe> Menu::getMenuItem() const {
 	return m_menuList;
 }
 
-size_t Menu::size() const
-{
-	return m_menuList.size();
-}
 
 const Recipe & Menu::operator[](unsigned int idx) const
 {
@@ -50,3 +46,7 @@ vector<Recipe>::const_iterator Menu::end() const
 	return m_menuList.end();
 }
 
+size_t Menu::size() const
+{
+	return m_menuList.size();
+}
