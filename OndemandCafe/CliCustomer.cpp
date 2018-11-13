@@ -47,13 +47,12 @@ ostream & operator<<(ostream & os, const Menu & menu)
 
 ostream & operator<<(ostream & os, const Coffee & coffee)
 {
-	os << setw(10);
-	os << "Coffee Name: "
-		<< setw(25)
-		<< coffee.getName()
-		
-		<< "Price :"
-		<< setw(20)
+	os << "Coffee Name :";
+	os << left;
+	os.width(20);
+	os << coffee.getName();
+	os << right;
+	os << "Price :"
 		<< coffee.getPrice();
 
 	return os;
@@ -87,7 +86,7 @@ ostream & operator<<(ostream & os, OrderType & ot)
 
 void CliCustomer::orderCommon() const
 {
-	cout << "¾Æ·¡ ¸Þ´º Áß ¿øÇÏ½Ã´Â °É ¼±ÅÃÇØÁÖ¼¼¿ä" << endl;
+	cout << "ì•„ëž˜ ë©”ë‰´ ì¤‘ ì›í•˜ì‹œëŠ” ê±¸ ì„ íƒí•´ì£¼ì„¸ìš”" << endl;
 	cout << "=================================================="<<endl;
 	cout << " <  Menu  >" << endl<<endl;
 	cout.setf(ios::left);
@@ -104,7 +103,7 @@ void CliCustomer::orderCustom() const
 	int order;
 	Amount amount;
 	while (true) {
-		cout << "Á¶ÇÕÇÒ Àç·á¸¦ °í¸£¼¼¿ä"
+		cout << "ì¡°í•©í•  ìž¬ë£Œë¥¼ ê³ ë¥´ì„¸ìš”"
 			<< endl
 			<< "============================================================"
 			<< endl
@@ -112,26 +111,26 @@ void CliCustomer::orderCustom() const
 			<< endl
 			<< ingredients.size()
 		
-			<< ". Á¶ÇÕ ³¡³»±â"
+			<< ". ì¡°í•© ëë‚´ê¸°"
 			<< endl;
 		cin >> order;
 		if (order == ingredients.size()) break;
-		cout << "Á¶ÇÕÇÒ ¾çÀ» ³ÖÀ¸¼¼¿ä" << endl;
+		cout << "ì¡°í•©í•  ì–‘ì„ ë„£ìœ¼ì„¸ìš”" << endl;
 		cin >> amount;
 		cout << "===========================================================" << endl;
 		data.push_back(RecipeData(ingredients[order], amount));
-		cout << "Áö±Ý±îÁö Á¶ÇÕµÈ ¸®½ºÆ®" << endl;
+		cout << "ì§€ê¸ˆê¹Œì§€ ì¡°í•©ëœ ë¦¬ìŠ¤íŠ¸" << endl;
 		for (unsigned int i = 0; i < data.size(); i++) {
 			cout << data[i] << endl;
 		}
 	}
 	Coffee& coffee = m_cafe.orderCustom(data);
 	if (coffee.getName() == "") {
-		cout << "ÀÌ¸§À» ÁöÀ¸½Ã°Ú½À´Ï±î?(Y/n) : ";
+		cout << "ì´ë¦„ì„ ì§€ìœ¼ì‹œê² ìŠµë‹ˆê¹Œ?(Y/n) : ";
 		char c;
 		cin >> c;
 		if (tolower(c) == 'y') {
-			cout << "»õ·Î¿î ¸Þ´ºÀÇ ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä : ";
+			cout << "ìƒˆë¡œìš´ ë©”ë‰´ì˜ ì´ë¦„ì„ ìž…ë ¥í•´ì£¼ì„¸ìš” : ";
 			cin.ignore();
 			string name;
 			getline(cin, name);
@@ -151,7 +150,7 @@ void CliCustomer::exit()
 
 OrderType CliCustomer::askOrder() const
 {
-	cout << "¿øÇÏ½Ã´Â ÁÖ¹®¹æ½Ä¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä("
+	cout << "ì›í•˜ì‹œëŠ” ì£¼ë¬¸ë°©ì‹ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”("
 		<< 0 << "~" << orderMap.size() - 1 << ")" << endl;
 	for (auto orderOption : orderMap) {
 		cout << orderOption.first << "." << orderOption.second << endl;
