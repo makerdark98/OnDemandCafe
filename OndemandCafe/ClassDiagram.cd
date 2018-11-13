@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="FullSignature">
+  <Class Name="Bill" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIIAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Bill.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CafeFactory" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAABIQAAAAAAAAgCAARIAAEIAAAAAQIABAhAIAAAQA=</HashCode>
+      <FileName>CafeFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barista" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAE=</HashCode>
+      <FileName>Barista.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cafe" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAACAAAAAAAAAAAAIAAIAAAQAABAAAAAAEAAAAAA=</HashCode>
+      <FileName>Cafe.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Coffee" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAIAAAAAYAAAAAEQAAAAAA=</HashCode>
+      <FileName>Coffee.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoffeeBean" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABCAAAAAAAAAAQAAAAAAAAAABAAkAAAAAAA=</HashCode>
+      <FileName>CoffeeBean.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ingredient" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAABAAAAACgAIAAAAAAAQAAAAgAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Ingredient.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAACABAAAAAAAAAAQAAQAAAIAAAAgAAAQAAAAAA=</HashCode>
+      <FileName>Menu.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RecipeData" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAIAAAAAAAAAAAAABABAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Recipe.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Recipe" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAACYgAAAAAAAAQAAAAAAAAAAQAEgAAAAAAg=</HashCode>
+      <FileName>Recipe.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrderType" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAgAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CliCustomer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CliCustomer" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAQAQAAAAAAAIgAACAAAAAAAAAAAAEAAAAAI=</HashCode>
+      <FileName>CliCustomer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Customer" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Customer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

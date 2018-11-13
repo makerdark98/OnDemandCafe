@@ -62,18 +62,24 @@ int Recipe::getCoffeePrice() const {
 	return retPrice;
 }
 
-Recipe Recipe::append(const RecipeData& newIngredient)const {
-	Recipe result = *this;
-	result.m_recipeData.push_back(newIngredient);
-	return result;
+Recipe& Recipe::append(const RecipeData& newIngredient) {
+	m_recipeData.push_back(newIngredient);
+	return *this;
 }
 
 const bool Recipe::equals(const Recipe& recipeData) const {
 	return m_recipeData == recipeData.m_recipeData; // TODO: to implement
 }
 
+Recipe Recipe::add(const RecipeData & newIngredient) const
+{
+	Recipe result = *this;
+	result.m_recipeData.push_back(newIngredient);
+	return result;
+}
+
 Recipe Recipe::operator+(const RecipeData& newIngredient)const {
-	return append(newIngredient);
+	return add(newIngredient);
 }
 
 bool Recipe::operator==(const Recipe& recipeData) const{

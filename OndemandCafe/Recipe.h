@@ -40,8 +40,9 @@ public:
 
 	Price getCoffeePrice() const;
 
-	Recipe append(const RecipeData& newIngredient)const;
+	Recipe& append(const RecipeData& newIngredient);
 	const bool equals(const Recipe& recipeData)const;
+	Recipe add(const RecipeData& newIngredient) const;
 
 	Recipe operator+(const RecipeData& newIngredient)const;
 	bool operator==(const Recipe& recipeData) const;

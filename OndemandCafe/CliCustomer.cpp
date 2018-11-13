@@ -88,14 +88,13 @@ void CliCustomer::orderCommon() const
 	cout << "\n\n새로운 재료를 첨가하시겠습니까? (Y/n)" << endl;
 	char c;
 	cin >> c;
-	/*
-	if (tolower(c)=='y') {
-		cin.ignore();
-		string name;
-		getline(cin, name);
-	}*/
-	
-	cout << m_cafe.orderMenu(order) << endl;;
+	//cout << m_cafe.orderMenu(order) << endl;;
+	Coffee& coffee = m_cafe.orderMenu(order);
+	Recipe recipe = coffee.getRecipe();
+	// recipe.append()
+	// TODO : recipe append -> 조합할 재료를 고르기
+	// 등록 여부 , orderCustom 참고
+	cout << coffee << endl;
 }
 
 void CliCustomer::orderCustom() const
@@ -107,7 +106,7 @@ void CliCustomer::orderCustom() const
 	while (true) {
 		cout << "조합할 재료를 고르세요"
 			<< endl
-			<< "============================================="
+			<< "============================================================"
 			<< endl
 			<< ingredients
 			<< ingredients.size()
