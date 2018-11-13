@@ -41,6 +41,7 @@ public:
 	Price getCoffeePrice() const;
 
 	Recipe& append(const RecipeData& newIngredient);
+	Recipe& append(const vector<RecipeData>& newIngredient);
 	const bool equals(const Recipe& recipeData)const;
 	Recipe add(const RecipeData& newIngredient) const;
 

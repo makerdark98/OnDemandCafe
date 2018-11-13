@@ -67,6 +67,11 @@ Recipe& Recipe::append(const RecipeData& newIngredient) {
 	return *this;
 }
 
+Recipe& Recipe::append(const vector<RecipeData>& newIngredient) {
+	m_recipeData.insert(m_recipeData.end(), newIngredient.begin(), newIngredient.end());
+	return *this;
+}
+
 const bool Recipe::equals(const Recipe& recipeData) const {
 	return m_recipeData == recipeData.m_recipeData; // TODO: to implement
 }
