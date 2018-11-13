@@ -8,7 +8,9 @@ RecipeData::RecipeData(const Ingredient & ingredient, const Amount & amount)
 
 RecipeData::~RecipeData()
 {
+
 }
+
 
 const Price RecipeData::getPrice() const
 {
@@ -41,9 +43,16 @@ Recipe::Recipe(const string & nameOfCoffee, const vector<RecipeData>& recipeData
 	
 }
 
+Recipe::Recipe(const Recipe & recipe)
+{
+	m_nameOfCoffee = recipe.m_nameOfCoffee;
+	m_recipeData = recipe.m_recipeData;
+}
+
 Recipe::~Recipe()
 {
 }
+
 
 string Recipe::getCoffeeName() const {
 	return m_nameOfCoffee;
@@ -62,13 +71,13 @@ int Recipe::getCoffeePrice() const {
 	return retPrice;
 }
 
-Recipe& Recipe::append(const RecipeData& newIngredient) {
-	m_recipeData.push_back(newIngredient);
+Recipe& Recipe::append(const RecipeData& moreIngredient) {
+	m_recipeData.push_back(moreIngredient);
 	return *this;
 }
 
-Recipe& Recipe::append(const vector<RecipeData>& newIngredient) {
-	m_recipeData.insert(m_recipeData.end(), newIngredient.begin(), newIngredient.end());
+Recipe& Recipe::append(const vector<RecipeData>& moreIngredient) {
+	m_recipeData.insert(m_recipeData.end(), moreIngredient.begin(), moreIngredient.end());
 	return *this;
 }
 

@@ -33,6 +33,7 @@ private:
 public:
 	Recipe(const vector<RecipeData>& recipeData);
 	Recipe(const string& nameOfCoffee, const vector<RecipeData>& recipeData);
+	Recipe(const Recipe& recipe);
 	virtual ~Recipe();
 
 	string getCoffeeName() const;
@@ -40,8 +41,8 @@ public:
 
 	Price getCoffeePrice() const;
 
-	Recipe& append(const RecipeData& newIngredient);
-	Recipe& append(const vector<RecipeData>& newIngredient);
+	Recipe& append(const RecipeData& moreIngredient);
+	Recipe& append(const vector<RecipeData>& moreIngredient);
 	const bool equals(const Recipe& recipeData)const;
 	Recipe add(const RecipeData& newIngredient) const;
 

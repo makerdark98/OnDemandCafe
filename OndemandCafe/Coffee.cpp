@@ -11,6 +11,12 @@ void Coffee::setName(const string & newName)
 	m_recipe.setCoffeeName(newName);
 }
 
+Coffee & Coffee::append(const vector<RecipeData>& moreIngredient)
+{
+	m_recipe.append(moreIngredient);
+	return *this;
+}
+
 const string Coffee::getName()const{
 	return m_recipe.getCoffeeName();
 }

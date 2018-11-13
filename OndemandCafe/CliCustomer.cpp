@@ -29,7 +29,7 @@ ostream & operator<<(ostream & os, const Recipe & recipe)
 {
 	cout << setw(35);
 	os << recipe.getCoffeeName()
-		<< "Price :"
+		<< "Price :		"
 		<< recipe.getCoffeePrice();
 	return os;
 }
@@ -53,7 +53,7 @@ ostream & operator<<(ostream & os, const Coffee & coffee)
 	os << right;
 	os << "Price :"
 		<< coffee.getPrice();
-
+	os << left;
 	return os;
 }
 
@@ -64,7 +64,7 @@ ostream & operator<<(ostream & os, const IngredientList& ingredients)
 		<< endl;
 	for (unsigned int i = 0; i < ingredients.size(); i++) {
 		os << i << ". "
-			<< ingredients[i]
+				<< ingredients[i]
 			<< endl;
 	}
 
@@ -99,8 +99,8 @@ void CliCustomer::orderCommon() const
 	char c;
 	cin >> c;
 	if (tolower(c) == 'y') {
+	
 		vector<RecipeData> topping_data;
-		Recipe recipe = coffee.getRecipe();
 		int topping_order;
 		Amount amount;
 		const IngredientList& topping = m_cafe.getIngredientList();
@@ -121,18 +121,31 @@ void CliCustomer::orderCommon() const
 			cout << "추가 할 양을 넣으세요" << endl;
 			cin >> amount;
 			cout << "===========================================================" << endl;
-			topping_data.push_back(RecipeData(topping[order], amount));
+			topping_data.push_back(RecipeData(topping[topping_order], amount));
 			cout << "추가된 토핑 리스트" << endl;
 			for (unsigned int i = 0; i < topping_data.size(); i++) {
 				cout << topping_data[i] << endl;
 			}
 		}
-		recipe=recipe.append(topping_data);
-		//TODO 원래 커피 가격에 추가한 재료의 가격을 더하는 것만 하면 됨.
+		coffee.append(topping_data);
+	
+		char check;
+		cout << "\n 새로운 이름을 지정하시겠습니까? (Y/n)" << endl;
+		cin >> check;
+		if (tolower(check) == 'y') {
+
+			cout << "새로운 메뉴의 이름을 입력해주세요 :";
+			cin.ignore();
+			string name;
+			getline(cin, name);
+			Recipe recipe = coffee.getRecipe();;
+			recipe.setCoffeeName(name);
+			coffee.setName(name);
+			m_cafe.getMenu().addMenuItem(recipe);
+		}
 	}
-
-
 	cout << coffee << endl;
+
 }
 
 void CliCustomer::orderCustom() const
@@ -172,6 +185,7 @@ void CliCustomer::orderCustom() const
 			Recipe recipe(name, data);
 			m_cafe.getMenu().addMenuItem(recipe);
 			coffee.setName(name);
+
 		}
 	}
 	cout << coffee << endl;
@@ -206,8 +220,6 @@ CliCustomer::CliCustomer(Cafe & cafe)
 	bAgain(true)
 {
 }
-
-
 CliCustomer::~CliCustomer()
 {
 
