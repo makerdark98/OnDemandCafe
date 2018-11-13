@@ -19,7 +19,7 @@ private:
 	CafeFactory(const CafeFactory &) = delete;
 	CafeFactory &operator=(const CafeFactory &) = delete;
 
-	void readCafeConfig();
+	//void readCafeConfig();
 	void readIngredientConfig();
 	Menu readMenuConfig();
 
