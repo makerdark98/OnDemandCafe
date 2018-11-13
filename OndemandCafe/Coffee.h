@@ -12,6 +12,7 @@ public:
 	~Coffee();
 
 	void setName(const string& newName);
+	Coffee& append(const vector<RecipeData>& moreIngredient);
 	const string getName()const;
 	const int getPrice() const;
 	const Recipe getRecipe() const;
