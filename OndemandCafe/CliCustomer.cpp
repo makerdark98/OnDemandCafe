@@ -1,10 +1,14 @@
 #include "CliCustomer.h"
 #include <iostream>
+#include <iomanip>
 
 ostream & operator<<(ostream & os, const Ingredient & ingredient)
 {
-	os << ingredient.getName()
-		<< "\t\tUnit Price : "
+		os.setf(ios::left);
+		os<<setw(30)
+		 << ingredient.getName()
+		 << setw(3)
+		 << "Unit Price : "
 		<< ingredient.getUnitPrice();
 	return os;
 }
@@ -12,16 +16,21 @@ ostream & operator<<(ostream & os, const Ingredient & ingredient)
 ostream & operator<<(ostream & os, const RecipeData & recipeData) 
 {
 	const Ingredient& ingredient = recipeData.getIngredient();
-	os << ingredient.getName()
-		<< "\t\tAmount : "
+
+	os.setf(ios::left);
+	os << setw(30)
+	 << ingredient.getName()
+		<< "Amount : "
+		<< setw(3)
 		<< recipeData.getAmount();
 	return os;
 }
 
 ostream & operator<<(ostream & os, const Recipe & recipe)
 {
+	cout << setw(35);
 	os << recipe.getCoffeeName()
-		<< "\t\tPrice :"
+		<< "Price :"
 		<< recipe.getCoffeePrice();
 	return os;
 }
@@ -29,7 +38,7 @@ ostream & operator<<(ostream & os, const Recipe & recipe)
 ostream & operator<<(ostream & os, const Menu & menu)
 {
 	for (unsigned int i = 0; i < menu.size(); i++) {
-		os << i << "."
+		os << i << ". "
 			<< menu[i]
 			<< endl;
 	}
@@ -38,9 +47,13 @@ ostream & operator<<(ostream & os, const Menu & menu)
 
 ostream & operator<<(ostream & os, const Coffee & coffee)
 {
-	os << "Coffee Name :"
+	os << setw(10);
+	os << "Coffee Name: "
+		<< setw(25)
 		<< coffee.getName()
-		<< "\t\tPrice :"
+		
+		<< "Price :"
+		<< setw(20)
 		<< coffee.getPrice();
 
 	return os;
@@ -48,10 +61,11 @@ ostream & operator<<(ostream & os, const Coffee & coffee)
 
 ostream & operator<<(ostream & os, const IngredientList& ingredients)
 {
-	os << "Ingredient List"
+	os << "< Ingredient List >"
+		<< endl
 		<< endl;
 	for (unsigned int i = 0; i < ingredients.size(); i++) {
-		os << i << "."
+		os << i << ". "
 			<< ingredients[i]
 			<< endl;
 	}
@@ -73,15 +87,14 @@ ostream & operator<<(ostream & os, OrderType & ot)
 
 void CliCustomer::orderCommon() const
 {
-	cout << "아래 메뉴 중 원하시는 걸 선택해주세요"
-		<< endl
-		<< "============================================="
-		<< endl
-		<< m_cafe.getMenu()
-		<< endl;
+	cout << "아래 메뉴 중 원하시는 걸 선택해주세요" << endl;
+	cout << "=================================================="<<endl;
+	cout << " <  Menu  >" << endl<<endl;
+	cout.setf(ios::left);
+	cout <<m_cafe.getMenu()<< endl;
 	int order;
 	cin >> order;
-	cout << m_cafe.orderMenu(order) << endl;;
+	cout << endl<<m_cafe.orderMenu(order) << endl<<endl;;
 }
 
 void CliCustomer::orderCustom() const
@@ -93,10 +106,12 @@ void CliCustomer::orderCustom() const
 	while (true) {
 		cout << "조합할 재료를 고르세요"
 			<< endl
-			<< "============================================="
+			<< "============================================================"
 			<< endl
 			<< ingredients
+			<< endl
 			<< ingredients.size()
+		
 			<< ". 조합 끝내기"
 			<< endl;
 		cin >> order;
