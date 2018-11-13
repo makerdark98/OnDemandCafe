@@ -48,17 +48,17 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CafeFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bill.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CliCustomer.cpp">
       <Filter>Source Files\Customer</Filter>
     </ClCompile>
     <ClCompile Include="IngredientList.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bill.cpp">
+      <Filter>Source Files\Cafe</Filter>
+    </ClCompile>
+    <ClCompile Include="CafeFactory.cpp">
+      <Filter>Source Files\Cafe</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -86,17 +86,17 @@
     <ClInclude Include="Recipe.h">
       <Filter>Header Files\Cafe</Filter>
     </ClInclude>
-    <ClInclude Include="Bill.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Customer.h">
       <Filter>Header Files\Customer</Filter>
     </ClInclude>
     <ClInclude Include="CliCustomer.h">
       <Filter>Header Files\Customer</Filter>
     </ClInclude>
+    <ClInclude Include="Bill.h">
+      <Filter>Header Files\Cafe</Filter>
+    </ClInclude>
     <ClInclude Include="IngredientList.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Cafe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
