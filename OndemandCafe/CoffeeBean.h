@@ -2,7 +2,7 @@
 #include<string>
 #include "Ingredient.h"
 using namespace std;
-
+/*
 class CoffeeBean:public Ingredient
 {
 private:
@@ -16,3 +16,4 @@ public:
 	const string getName() const;
 };
 
+*/

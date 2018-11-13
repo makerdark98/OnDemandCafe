@@ -174,7 +174,7 @@
     <Text Include="menu.config">
       <SubType>Designer</SubType>
     </Text>
-    <Text Include="cafe.config">
+    <Text Include="coffeebean.config">
       <SubType>Designer</SubType>
     </Text>
     <Text Include="ingredient.config">

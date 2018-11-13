@@ -24,7 +24,12 @@ vector<string> split(const string& s, char delimiter) {
 
 bool CafeFactory::isCoffeeBean(const string & ingredientName)
 {
-	return m_coffeeBeanString == ingredientName;
+	for (const string& item : m_coffeeBeans) {
+		if (item == ingredientName) {
+			return true;
+		}
+	}
+	return false;
 }
 
 Menu CafeFactory::createMenu()
@@ -45,7 +50,7 @@ IngredientList CafeFactory::createIngredientLists()
 
 CafeFactory::CafeFactory()
 {
-	setCafeConfig("cafe.config");
+	setCoffeeBeanConfig("coffeebean.config");
 	setIngredientConfig("ingredient.config");
 	setMenuConfig("menu.config");
 }
@@ -54,7 +59,10 @@ void CafeFactory::readCafeConfig()
 {
 	ifstream cafeConfig;
 	cafeConfig.open(m_cafeConfigFileName);
-	getline(cafeConfig, m_coffeeBeanString);
+	string rawData;
+	while (getline(cafeConfig, rawData)) {
+		m_coffeeBeans.push_back(rawData);
+	}
 	cafeConfig.close();
 }
 
@@ -83,12 +91,12 @@ Menu CafeFactory::readMenuConfig()
 		string name = parsedItem[0];
 		shared_ptr<Ingredient> ingredient=nullptr;
 		for (unsigned int i = 1; i < parsedItem.size()-1; i+=2) {
-			if (isCoffeeBean(parsedItem[i])) {
-				ingredient = make_shared<CoffeeBean>("Ethiopia", ingredientUnitPrice[parsedItem[i]]);
-			}
-			else {
+			/*if (isCoffeeBean(parsedItem[i])) {
+				ingredient = make_shared<CoffeeBean>(parsedItem[i], ingredientUnitPrice[parsedItem[i]]);
+			}*/
+			//else {
 				ingredient = make_shared<Ingredient>(parsedItem[i], ingredientUnitPrice[parsedItem[i]]);
-			}
+			//}
 			recipeData.push_back(RecipeData(*ingredient, stoi(parsedItem[i+1])));
 		}
 		result.push_back(Recipe(name,recipeData));
@@ -115,7 +123,7 @@ Cafe CafeFactory::createCafe()
 	return Cafe(createMenu(), createIngredientLists());
 }
 
-void CafeFactory::setCafeConfig(const string & cafeConfig)
+void CafeFactory::setCoffeeBeanConfig(const string & cafeConfig)
 {
 	m_cafeConfigFileName = cafeConfig;
 }

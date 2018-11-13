@@ -15,12 +15,7 @@ const string Ingredient::getName()const {
 }
 
 const bool Ingredient::equals(const Ingredient& others)const {
-	if (m_name == others.m_name){
-		return true;
-	}
-	else {
-		return false;
-	}
+	return m_name == others.m_name;
 }
 
 const bool Ingredient::operator==(const Ingredient& others)const {

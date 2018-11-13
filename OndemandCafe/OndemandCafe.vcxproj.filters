@@ -109,10 +109,10 @@
     <Text Include="menu.config">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="cafe.config">
+    <Text Include="ingredient.config">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="ingredient.config">
+    <Text Include="coffeebean.config">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

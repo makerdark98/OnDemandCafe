@@ -5,7 +5,7 @@
 ostream & operator<<(ostream & os, const Ingredient & ingredient)
 {
 	os << ingredient.getName()
-		<< "\t\tUnit Price : "
+		<< "Unit Price : "
 		<< ingredient.getUnitPrice();
 	return os;
 }
