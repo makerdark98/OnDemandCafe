@@ -1,5 +1,6 @@
 #include "CliCustomer.h"
 #include <iostream>
+#include <iomanip>
 
 ostream & operator<<(ostream & os, const Ingredient & ingredient)
 {
@@ -38,9 +39,12 @@ ostream & operator<<(ostream & os, const Menu & menu)
 
 ostream & operator<<(ostream & os, const Coffee & coffee)
 {
-	os << "Coffee Name :"
-		<< coffee.getName()
-		<< "\t\tPrice :"
+	os << "Coffee Name :";
+	os << left;
+	os.width(20);
+	os << coffee.getName();
+	os << right;
+	os << "Price :"
 		<< coffee.getPrice();
 
 	return os;
@@ -81,6 +85,16 @@ void CliCustomer::orderCommon() const
 		<< endl;
 	int order;
 	cin >> order;
+	cout << "\n\n새로운 재료를 첨가하시겠습니까? (Y/n)" << endl;
+	char c;
+	cin >> c;
+	/*
+	if (tolower(c)=='y') {
+		cin.ignore();
+		string name;
+		getline(cin, name);
+	}*/
+	
 	cout << m_cafe.orderMenu(order) << endl;;
 }
 
