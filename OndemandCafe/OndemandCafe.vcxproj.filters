@@ -39,9 +39,6 @@
     <ClCompile Include="Coffee.cpp">
       <Filter>Source Files\Cafe</Filter>
     </ClCompile>
-    <ClCompile Include="CoffeeBean.cpp">
-      <Filter>Source Files\Cafe</Filter>
-    </ClCompile>
     <ClCompile Include="Ingredient.cpp">
       <Filter>Source Files\Cafe</Filter>
     </ClCompile>
@@ -80,9 +77,6 @@
     <ClInclude Include="Coffee.h">
       <Filter>Header Files\Cafe</Filter>
     </ClInclude>
-    <ClInclude Include="CoffeeBean.h">
-      <Filter>Header Files\Cafe</Filter>
-    </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Header Files\Cafe</Filter>
     </ClInclude>
@@ -109,10 +103,10 @@
     <Text Include="menu.config">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="cafe.config">
+    <Text Include="ingredient.config">
       <Filter>Resource Files</Filter>
     </Text>
-    <Text Include="ingredient.config">
+    <Text Include="coffeebean.config">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

@@ -148,7 +148,6 @@
     <ClCompile Include="CafeFactory.cpp" />
     <ClCompile Include="CliCustomer.cpp" />
     <ClCompile Include="Coffee.cpp" />
-    <ClCompile Include="CoffeeBean.cpp" />
     <ClCompile Include="Ingredient.cpp" />
     <ClCompile Include="IngredientList.cpp" />
     <ClCompile Include="main.cpp" />
@@ -162,7 +161,6 @@
     <ClInclude Include="CafeFactory.h" />
     <ClInclude Include="CliCustomer.h" />
     <ClInclude Include="Coffee.h" />
-    <ClInclude Include="CoffeeBean.h" />
     <ClInclude Include="Customer.h" />
     <ClInclude Include="Ingredient.h" />
     <ClInclude Include="IngredientList.h" />
@@ -174,7 +172,7 @@
     <Text Include="menu.config">
       <SubType>Designer</SubType>
     </Text>
-    <Text Include="cafe.config">
+    <Text Include="coffeebean.config">
       <SubType>Designer</SubType>
     </Text>
     <Text Include="ingredient.config">
