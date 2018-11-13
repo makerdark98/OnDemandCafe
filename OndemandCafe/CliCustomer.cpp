@@ -1,45 +1,37 @@
 ﻿#include "CliCustomer.h"
 #include <iostream>
 #include <iomanip>
+
+bool isValid(int i, pair<int, int> range) {
+	return range.first <= i && i < range.second;
+}
+
 ostream & operator<<(ostream & os, const Ingredient & ingredient)
 {
-		os.setf(ios::left);
-		os<<setw(30)
-		 << ingredient.getName()
-		 << setw(3)
-		 << "Unit Price : "
-		<< ingredient.getUnitPrice();
+	os << left << setw(30) << ingredient.getName();
+	os << setw(3) << "Unit Price : " << ingredient.getUnitPrice();
 	return os;
 }
 
-ostream & operator<<(ostream & os, const RecipeData & recipeData) 
+ostream & operator<<(ostream & os, const RecipeData & recipeData)
 {
 	const Ingredient& ingredient = recipeData.getIngredient();
-
-	os.setf(ios::left);
-	os << setw(30)
-	 << ingredient.getName()
-		<< "Amount : "
-		<< setw(3)
-		<< recipeData.getAmount();
+	os << setw(30) << ingredient.getName();
+	os << "Amount : " << setw(3) << recipeData.getAmount();
 	return os;
 }
 
 ostream & operator<<(ostream & os, const Recipe & recipe)
 {
-	cout << setw(35);
-	os << recipe.getCoffeeName()
-		<< "Price :		"
-		<< recipe.getCoffeePrice();
+	os << setw(35) << recipe.getCoffeeName();
+	os << "Price : " << recipe.getCoffeePrice();
 	return os;
 }
 
 ostream & operator<<(ostream & os, const Menu & menu)
 {
 	for (unsigned int i = 0; i < menu.size(); i++) {
-		os << i << ". "
-			<< menu[i]
-			<< endl;
+		os << right << setw(2) << i << left << ". " << menu[i] << endl;
 	}
 	return os;
 }
@@ -47,25 +39,18 @@ ostream & operator<<(ostream & os, const Menu & menu)
 ostream & operator<<(ostream & os, const Coffee & coffee)
 {
 	os << "Coffee Name :";
-	os << left;
 	os.width(20);
 	os << coffee.getName();
-	os << right;
-	os << "Price :"
-		<< coffee.getPrice();
+	os << right << "Price :" << coffee.getPrice();
 	os << left;
 	return os;
 }
 
 ostream & operator<<(ostream & os, const IngredientList& ingredients)
 {
-	os << "< Ingredient List >"
-		<< endl
-		<< endl;
+	os << "< Ingredient List >\n" << endl;
 	for (unsigned int i = 0; i < ingredients.size(); i++) {
-		os << i << ". "
-				<< ingredients[i]
-			<< endl;
+		os << i << ". " << ingredients[i] << endl;
 	}
 
 	return os;
@@ -77,7 +62,7 @@ OrderType::OrderType(const string & name, function<void(void)> func)
 	m_func = func;
 }
 
-ostream & operator<<(ostream & os, OrderType & ot)
+ostream & operator<<(ostream & os, const OrderType & ot)
 {
 	os << ot.m_name;
 	return os;
@@ -85,13 +70,18 @@ ostream & operator<<(ostream & os, OrderType & ot)
 
 void CliCustomer::orderCommon() const
 {
+	const Menu& menu = m_cafe.getMenu();
+
 	cout << "아래 메뉴 중 원하시는 걸 선택해주세요" << endl;
-	cout << "=================================================="<<endl;
-	cout << " <  Menu  >" << endl<<endl;
-	cout.setf(ios::left);
-	cout <<m_cafe.getMenu()<< endl;
+	cout << "==================================================" << endl;
+	cout << " <  Menu  >\n" << endl;
+	cout << menu << endl;
 	int order;
 	cin >> order;
+	while (!isValid(order, { 0, menu.size() })) {
+		cout << "다시 입력해주세요 " << endl;
+		cin >> order;
+	}
 
 	Coffee& coffee = m_cafe.orderMenu(order);
 
@@ -99,22 +89,20 @@ void CliCustomer::orderCommon() const
 	char c;
 	cin >> c;
 	if (tolower(c) == 'y') {
-	
 		vector<RecipeData> topping_data;
 		int topping_order;
 		Amount amount;
 		const IngredientList& topping = m_cafe.getIngredientList();
 		while (true) {
-			cout << " 추가할 재료를 고르세요"
-				<< endl
-				<< "==========================================================="
-				<< endl
-				<< topping
-				<< endl
-				<< topping.size()
-				<< ". 토핑 추가 끝내기"
-				<< endl;
+			cout << " 추가할 재료를 고르세요\n";
+			cout << "===========================================================" << endl;
+			cout << topping << endl;
+			cout << topping.size() << ". 토핑 추가 끝내기" << endl;
 			cin >> topping_order;
+			while (!isValid(topping_order, { 0, topping.size()+1 })) {
+				cout << "다시 입력해주세요 " << endl;
+				cin >> topping_order;
+			}
 			if (topping_order == topping.size()) {
 				break;
 			}
@@ -128,12 +116,11 @@ void CliCustomer::orderCommon() const
 			}
 		}
 		coffee.append(topping_data);
-	
+
 		char check;
 		cout << "\n 새로운 이름을 지정하시겠습니까? (Y/n)" << endl;
 		cin >> check;
 		if (tolower(check) == 'y') {
-
 			cout << "새로운 메뉴의 이름을 입력해주세요 :";
 			cin.ignore();
 			string name;
@@ -145,7 +132,6 @@ void CliCustomer::orderCommon() const
 		}
 	}
 	cout << coffee << endl;
-
 }
 
 void CliCustomer::orderCustom() const
@@ -160,8 +146,12 @@ void CliCustomer::orderCustom() const
 		cout << ingredients << endl;
 		cout << ingredients.size();
 
-		cout<< ". 조합 끝내기"<< endl;
+		cout << ". 조합 끝내기" << endl;
 		cin >> order;
+		while (!isValid(order, { 0, ingredients.size()+1 })) {
+			cout << "다시 입력해주세요 " << endl;
+			cin >> order;
+		}
 		if (order == ingredients.size()) break;
 		cout << "조합할 양을 넣으세요" << endl;
 		cin >> amount;
@@ -172,6 +162,8 @@ void CliCustomer::orderCustom() const
 			cout << data[i] << endl;
 		}
 	}
+
+	if (data.size() == 0) return;
 	Coffee& coffee = m_cafe.orderCustom(data);
 	if (coffee.getName() == "") {
 		cout << "이름을 지으시겠습니까?(Y/n) : ";
@@ -198,16 +190,23 @@ void CliCustomer::exit()
 }
 
 OrderType CliCustomer::askOrder() const
-{	
-	cout << "원하시는 주문방식를 입력해주세요("
-		<< 0 << "~" << orderMap.size() - 1 << ")" << endl;
-	for (auto orderOption : orderMap) {
-		
+{
+	cout << "원하시는 주문방식를 입력해주세요" << endl;
+	for (const auto& orderOption : orderMap) {
 		cout << orderOption.first << "." << orderOption.second << endl;
 	}
+
 	int inputOrder;
-	cin >> inputOrder;
-	return orderMap.at(inputOrder);
+	try {
+		cin >> inputOrder;
+		return orderMap.at(inputOrder);
+	}
+	catch (...) {
+		return OrderType("Retry", []()->void {
+			cout << "입력 방식이 잘못되었습니다." << endl;
+			cout << "다시 입력해주세요" << endl;
+		});
+	}
 }
 
 CliCustomer::CliCustomer(Cafe & cafe)
@@ -222,7 +221,6 @@ CliCustomer::CliCustomer(Cafe & cafe)
 }
 CliCustomer::~CliCustomer()
 {
-
 
 }
 

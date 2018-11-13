@@ -11,31 +11,19 @@ once_flag CafeFactory::m_OnceFlag;
 shared_ptr<CafeFactory> CafeFactory::m_instance = nullptr;
 
 vector<string> split(const string& s, char delimiter) {
-	std::vector<std::string> tokens;
-	std::string token;
-	std::istringstream tokenStream(s);
-	while (std::getline(tokenStream, token, delimiter))
+	vector<string> tokens;
+	string token;
+	istringstream tokenStream(s);
+	while (getline(tokenStream, token, delimiter))
 	{
 		tokens.push_back(token);
 	}
 	return tokens;
 }
 
-
-//bool CafeFactory::isCoffeeBean(const string & ingredientName)
-//{
-//	for (const string& item : m_coffeeBeans) {
-//		if (item == ingredientName) {
-//			return true;
-//		}
-//	}
-//	return false;
-//}
-
-Menu CafeFactory::createMenu()
+Menu CafeFactory::createMenu(const string& menuConfigFileName)
 {
-	Menu& result = readMenuConfig();
-
+	Menu& result = readMenuConfig(menuConfigFileName);
 	return result;
 }
 
@@ -50,26 +38,12 @@ IngredientList CafeFactory::createIngredientLists()
 
 CafeFactory::CafeFactory()
 {
-	//setCoffeeBeanConfig("coffeebean.config");
-	setIngredientConfig("ingredient.config");
-	setMenuConfig("menu.config");
 }
 
-//void CafeFactory::readCafeConfig()
-//{
-//	ifstream cafeConfig;
-//	cafeConfig.open(m_cafeConfigFileName);
-//	string rawData;
-//	while (getline(cafeConfig, rawData)) {
-//		m_coffeeBeans.push_back(rawData);
-//	}
-//	cafeConfig.close();
-//}
-
-void CafeFactory::readIngredientConfig()
+void CafeFactory::readIngredientConfig(const string& ingredientConfigFileName)
 {
 	ifstream ingredientConfig;
-	ingredientConfig.open(m_ingredientConfigFileName);
+	ingredientConfig.open(ingredientConfigFileName);
 	string rawData;
 	while (getline(ingredientConfig, rawData)) {
 		vector<string> parsedData = split(rawData, ',');
@@ -79,10 +53,10 @@ void CafeFactory::readIngredientConfig()
 	}
 }
 
-Menu CafeFactory::readMenuConfig()
+Menu CafeFactory::readMenuConfig(const string& menuConfigFileName)
 {
 	ifstream menuConfig;
-	menuConfig.open(m_menuConfigFileName);
+	menuConfig.open(menuConfigFileName);
 	string rawItem;
 	vector<Recipe> result;
 	while (getline(menuConfig, rawItem)) {
@@ -111,25 +85,8 @@ CafeFactory & CafeFactory::getInstance()
 	return *(m_instance.get());
 }
 
-Cafe CafeFactory::createCafe()
+Cafe CafeFactory::createCafe(const string & ingredientConfigFileName, const string & menuConfigFileName)
 {
-	//readCafeConfig();
-	readIngredientConfig();
-	return Cafe(createMenu(), createIngredientLists());
+	readIngredientConfig(ingredientConfigFileName);
+	return Cafe(createMenu(menuConfigFileName), createIngredientLists());
 }
-
-//void CafeFactory::setCoffeeBeanConfig(const string & cafeConfig)
-//{
-//	m_cafeConfigFileName = cafeConfig;
-//}
-
-void CafeFactory::setIngredientConfig(const string & ingredientConfig)
-{
-	m_ingredientConfigFileName = ingredientConfig;
-}
-
-void CafeFactory::setMenuConfig(const string & menuConfig)
-{
-	m_menuConfigFileName = menuConfig;
-}
-

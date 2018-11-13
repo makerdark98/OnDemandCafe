@@ -12,7 +12,7 @@ public:
 	function<void(void)> m_func;
 
 	OrderType(const string& name, function<void(void)> func);
-	friend ostream& operator<<(ostream& os, OrderType& ot);
+	friend ostream& operator<<(ostream& os, const OrderType& ot);
 };
 
 class CliCustomer :
