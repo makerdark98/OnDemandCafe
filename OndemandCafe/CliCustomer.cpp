@@ -1,7 +1,6 @@
-#include "CliCustomer.h"
+﻿#include "CliCustomer.h"
 #include <iostream>
 #include <iomanip>
-
 ostream & operator<<(ostream & os, const Ingredient & ingredient)
 {
 		os.setf(ios::left);
@@ -93,15 +92,46 @@ void CliCustomer::orderCommon() const
 	cout <<m_cafe.getMenu()<< endl;
 	int order;
 	cin >> order;
-	cout << "\n\n���ο� ��Ḧ ÷���Ͻðڽ��ϱ�? (Y/n)" << endl;
+
+	Coffee& coffee = m_cafe.orderMenu(order);
+
+	cout << "\n\n 커피에 토핑을 추가 하시겠습니까? (Y/n)" << endl;
 	char c;
 	cin >> c;
-	//cout << m_cafe.orderMenu(order) << endl;;
-	Coffee& coffee = m_cafe.orderMenu(order);
-	Recipe recipe = coffee.getRecipe();
-	// recipe.append()
-	// TODO : recipe append -> ������ ��Ḧ ����
-	// ��� ���� , orderCustom ����
+	if (tolower(c) == 'y') {
+		vector<RecipeData> topping_data;
+		Recipe recipe = coffee.getRecipe();
+		int topping_order;
+		Amount amount;
+		const IngredientList& topping = m_cafe.getIngredientList();
+		while (true) {
+			cout << " 추가할 재료를 고르세요"
+				<< endl
+				<< "==========================================================="
+				<< endl
+				<< topping
+				<< endl
+				<< topping.size()
+				<< ". 토핑 추가 끝내기"
+				<< endl;
+			cin >> topping_order;
+			if (topping_order == topping.size()) {
+				break;
+			}
+			cout << "추가 할 양을 넣으세요" << endl;
+			cin >> amount;
+			cout << "===========================================================" << endl;
+			topping_data.push_back(RecipeData(topping[order], amount));
+			cout << "추가된 토핑 리스트" << endl;
+			for (unsigned int i = 0; i < topping_data.size(); i++) {
+				cout << topping_data[i] << endl;
+			}
+		}
+		recipe=recipe.append(topping_data);
+		//TODO 원래 커피 가격에 추가한 재료의 가격을 더하는 것만 하면 됨.
+	}
+
+
 	cout << coffee << endl;
 }
 
@@ -112,16 +142,12 @@ void CliCustomer::orderCustom() const
 	int order;
 	Amount amount;
 	while (true) {
-		cout << "조합할 재료를 고르세요"
-			<< endl
-			<< "============================================================"
-			<< endl
-			<< ingredients
-			<< endl
-			<< ingredients.size()
-		
-			<< ". 조합 끝내기"
-			<< endl;
+		cout << "조합할 재료를 고르세요" << endl;
+		cout << "============================================================" << endl;
+		cout << ingredients << endl;
+		cout << ingredients.size();
+
+		cout<< ". 조합 끝내기"<< endl;
 		cin >> order;
 		if (order == ingredients.size()) break;
 		cout << "조합할 양을 넣으세요" << endl;
@@ -158,10 +184,11 @@ void CliCustomer::exit()
 }
 
 OrderType CliCustomer::askOrder() const
-{
+{	
 	cout << "원하시는 주문방식를 입력해주세요("
 		<< 0 << "~" << orderMap.size() - 1 << ")" << endl;
 	for (auto orderOption : orderMap) {
+		
 		cout << orderOption.first << "." << orderOption.second << endl;
 	}
 	int inputOrder;
@@ -183,6 +210,8 @@ CliCustomer::CliCustomer(Cafe & cafe)
 
 CliCustomer::~CliCustomer()
 {
+
+
 }
 
 void CliCustomer::run() {
